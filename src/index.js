@@ -1,3 +1,3 @@
-import Appliance from './Appliance'
+import AbstractAppliance from './AbstractAppliance'
 
-export default Appliance
+export default AbstractAppliance

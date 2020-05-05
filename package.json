@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "repository": "git@github.com:tvkitchen/tvka-template.git",
   "author": "Bad Idea Factory <biffuddotcom@biffud.com>",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "scripts": {
     "build": "babel src -d dist",
     "lint": "./node_modules/.bin/eslint 'src/**/*.js'",

@@ -1,5 +1,5 @@
+import { Payload } from '@tvkitchen/base-classes'
 import { isPayloadInstance } from '../payload'
-import Payload from '../../Payload'
 
 describe('payload utilities #unit', () => {
 	describe('isPayloadInstance', () => {

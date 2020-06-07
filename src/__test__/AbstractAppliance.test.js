@@ -3,8 +3,8 @@ import {
 	AbstractInstantiationError,
 	NotImplementedError,
 } from '@tvkitchen/base-errors'
+import { Payload } from '@tvkitchen/base-classes'
 import AbstractAppliance from '../AbstractAppliance'
-import Payload from '../Payload'
 import {
 	FullyImplementedAppliance,
 	PartiallyImplementedAppliance,

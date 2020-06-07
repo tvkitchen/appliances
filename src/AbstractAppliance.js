@@ -1,9 +1,7 @@
 import assert from 'assert'
 import EventEmitter from 'events'
-import {
-	AbstractInstantiationError,
-	NotImplementedError,
-} from '@tvkitchen/base-errors'
+import { AbstractInstantiationError } from '@tvkitchen/base-errors'
+import { IAppliance } from '@tvkitchen/base-interfaces'
 import PayloadBuffer from './PayloadBuffer'
 import { isPayloadInstance } from './utils/payload'
 import {
@@ -12,7 +10,7 @@ import {
 } from './constants/events'
 
 /**
- * The Abstract Appliance defines the shape of an Appliance and implements
+ * The Abstract Appliance begins to implement the IAppliance interface and implements
  * a few universal pieces of functionality, such as:
  *
  * - Event emission
@@ -22,7 +20,7 @@ import {
  * For more information about the TV Kitchen architecture visit:
  * https://github.com/tvkitchen/tv-kitchen/blob/master/docs/ARCHITECTURE.md
  */
-class AbstractAppliance {
+class AbstractAppliance extends IAppliance {
 	settings = {}
 
 	emitter = new EventEmitter()
@@ -30,6 +28,7 @@ class AbstractAppliance {
 	payloadBuffer = new PayloadBuffer()
 
 	constructor(overrideSettings = {}) {
+		super()
 		if (this.constructor === AbstractAppliance) {
 			throw new AbstractInstantiationError('AbstractAppliance')
 		}
@@ -38,64 +37,6 @@ class AbstractAppliance {
 			overrideSettings,
 		)
 	}
-
-	/**
-	 *******************************************
-	 ************ ABSTRACT METHODS *************
-	 *******************************************
-	 */
-
-	/**
-	 * Getter for the list of data types accepted by the appliance.
-	 *
-	 * OVERRIDE WHEN EXTENDING
-	 *
-	 * @return {Array[String]} The list of data types accepted by the appliance.
-	 */
-	getInputTypes = () => {
-		throw new NotImplementedError('getInputTypes')
-	}
-
-	/**
-	 * Getter for the list of data types produced by the appliance.
-	 *
-	 * OVERRIDE WHEN EXTENDING
-	 *
-	 * @return {Array[String]} The list of data types produced by the appliance.
-	 */
-	getOutputTypes = () => {
-		throw new NotImplementedError('getOutputTypes')
-	}
-
-	/**
-	 * Asserts that a given payload is actually a payload.
-   *
-   * OVERRIDE WHEN EXTENDING
-   *
-	 * @param  {Payload} payload The payload that we want to validate.
-	 * @return {Boolean}         The result of the validation check.
-	 */
-	// eslint-disable-next-line no-unused-vars
-	isValidPayload = async (payload) => {
-		throw new NotImplementedError('isValidPayload')
-	}
-
-	/**
-	 * Invokes the appliance on any unprocessed data in the appliance buffer.
-   *
-   * OVERRIDE WHEN EXTENDING
-	 *
-	 * @return {Boolean} Whether or not the appliance had enough data to work with.
-	 */
-	invoke = async () => {
-		throw new NotImplementedError('invoke')
-	}
-
-	/**
-	 *******************************************
-	 *********** IMPLEMENTED METHODS ***********
-	 *******************************************
-	 */
 
 	/**
 	 * Called by a third party to pass data into the appliance.

@@ -30,5 +30,8 @@
   },
   "engines": {
     "node": ">=13.10"
+  },
+  "dependencies": {
+    "@tvkitchen/base-errors": "^1.0.1"
   }
 }

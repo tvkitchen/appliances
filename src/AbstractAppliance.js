@@ -3,7 +3,7 @@ import EventEmitter from 'events'
 import {
 	AbstractInstantiationError,
 	NotImplementedError,
-} from './errors'
+} from '@tvkitchen/base-errors'
 import PayloadBuffer from './PayloadBuffer'
 import { isPayloadInstance } from './utils/payload'
 import {
@@ -17,7 +17,7 @@ import {
  *
  * - Event emission
  * - Payload validation process flow
- * - Appliance setting resolution
+ * - Appliance configuration
  *
  * For more information about the TV Kitchen architecture visit:
  * https://github.com/tvkitchen/tv-kitchen/blob/master/docs/ARCHITECTURE.md

@@ -32,6 +32,7 @@
     "node": ">=13.10"
   },
   "dependencies": {
+    "@tvkitchen/base-classes": "^1.1.0",
     "@tvkitchen/base-errors": "^1.0.1"
   }
 }

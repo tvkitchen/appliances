@@ -1,8 +1,5 @@
 import { AssertionError } from 'assert'
-import {
-	AbstractInstantiationError,
-	NotImplementedError,
-} from '@tvkitchen/base-errors'
+import { AbstractInstantiationError } from '@tvkitchen/base-errors'
 import { Payload } from '@tvkitchen/base-classes'
 import AbstractAppliance from '../AbstractAppliance'
 import {
@@ -12,32 +9,10 @@ import {
 
 describe('AbstractAppliance #unit', () => {
 	describe('construction', () => {
-		it('should throw an error when called directly', () => {
+		it('should throw an error when constructed directly', () => {
 			expect(() => {
 				new AbstractAppliance() // eslint-disable-line no-new
 			}).toThrow(AbstractInstantiationError)
-		})
-
-		it('should throw an error when getInputTypes() is called without implementation', () => {
-			const implementedAppliance = new PartiallyImplementedAppliance()
-			expect(() => implementedAppliance.getInputTypes()).toThrow(NotImplementedError)
-		})
-
-		it('should throw an error when getOutputTypes() is called without implementation', () => {
-			const implementedAppliance = new PartiallyImplementedAppliance()
-			expect(() => implementedAppliance.getOutputTypes()).toThrow(NotImplementedError)
-		})
-
-		it('should throw an error when isValidPayload() is called without implementation', async () => {
-			const implementedAppliance = new PartiallyImplementedAppliance()
-			await expect(async () => implementedAppliance.isValidPayload())
-				.rejects.toBeInstanceOf(NotImplementedError)
-		})
-
-		it('should throw an error when invoke() is called without implementation', async () => {
-			const implementedAppliance = new PartiallyImplementedAppliance()
-			await expect(async () => implementedAppliance.invoke())
-				.rejects.toBeInstanceOf(NotImplementedError)
 		})
 
 		it('should allow construction when extended', () => {
@@ -45,27 +20,9 @@ describe('AbstractAppliance #unit', () => {
 				new PartiallyImplementedAppliance() // eslint-disable-line no-new
 			}).not.toThrow(Error)
 		})
+	})
 
-		it('should not throw an error when getInputTypes() is called with implementation', () => {
-			const implementedAppliance = new FullyImplementedAppliance()
-			expect(() => implementedAppliance.getInputTypes()).not.toThrow(NotImplementedError)
-		})
-
-		it('should not throw an error when getOutputTypes() is called with implementation', () => {
-			const implementedAppliance = new FullyImplementedAppliance()
-			expect(() => implementedAppliance.getOutputTypes()).not.toThrow(NotImplementedError)
-		})
-
-		it('should not throw an error when isValidPayload() is called with implementation', async () => {
-			const implementedAppliance = new FullyImplementedAppliance()
-			expect(await implementedAppliance.isValidPayload()).toBeDefined()
-		})
-
-		it('should not throw an error when invoke() is called with implementation', async () => {
-			const implementedAppliance = new FullyImplementedAppliance()
-			expect(await implementedAppliance.invoke()).toBeDefined()
-		})
-
+	describe('ingestPayload', () => {
 		it('should throw an error when a non-payload is ingested', async () => {
 			const implementedAppliance = new FullyImplementedAppliance()
 			const invokeSpy = jest.spyOn(implementedAppliance, 'invoke')

@@ -1,9 +1,9 @@
 import { AssertionError } from 'assert'
-import AbstractAppliance from '../AbstractAppliance'
 import {
 	AbstractInstantiationError,
 	NotImplementedError,
-} from '../errors'
+} from '@tvkitchen/base-errors'
+import AbstractAppliance from '../AbstractAppliance'
 import Payload from '../Payload'
 import {
 	FullyImplementedAppliance,

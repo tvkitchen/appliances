@@ -1,23 +1,23 @@
-# TV Kitchen Appliance Core
+[![Build Status](https://travis-ci.com/tvkitchen/appliances.svg?branch=master)](https://travis-ci.com/tvkitchen/base)
 
-This repository contains core classes and constants for use by TV Kitchen Appliances and code that interacts with TV Kitchen Appliances.
+# TV Kitchen: Appliances
 
-## Key Repository Contents
+This monorepo contains all officially supported TV Kitchen appliances, as well as the `core` appliance which contains some universal appliance functionality.
 
-This repository has some supporting classes, but the content that will be relevant to others are:
+## Driving Philosophy
 
-* `AbstractAppliance` is a class which all TV Kitchen Appliances should extend and implement.
-* `Payload` is a class that represents a complete data + metadata packet that an appliance will expect.
-* `errors` is the collection of specific exceptions / errors that a TV Kitchen Appliance might throw.
+Appliances are modular tools that can be used to process data streams within a given TV Kitchen implementation. They are loaded and managed by the TV Kitchen's `Countertop`.
 
-## Implementing an Abstract Appliance
 
-An implemented TV Kitchen Appliance must override the following methods:
+It is possible to develop and use Appliances that are not contained in this repository. If you are interested in creating your own appliances and don't know where to start please create an issue in this repository to begin a discussion.
 
-1. `getInputTypes`: returns an array of strings that represent the data types that the appliance accepts.
-2. `getOutputTypes`: returns an array of strings that represent the data types that the appliance produces.
-3. `isValidPayload`: returns a boolean indicating if a given `Payload` (instance of data) meets the conditions of the appliance.
-4. `invoke`: will actually process the data that has been collected by the appliance so far.
+## Setting Up
+
+```sh
+yarn install
+```
+
+This will install project dependencies, link local sibling dependencies (we're using [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)), and build/transpile each package.
 
 ## About the TV Kitchen
 

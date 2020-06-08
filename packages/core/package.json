@@ -1,0 +1,21 @@
+{
+  "name": "@tvkitchen/appliance-core",
+  "description": "An abstract Appliance with implemented core functionality.",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tvkitchen/appliances.git",
+    "directory": "packages/core"
+  },
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "dependencies": {
+    "@tvkitchen/base-classes": "^1.1.0",
+    "@tvkitchen/base-errors": "^1.0.1",
+    "@tvkitchen/base-interfaces": "^1.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -104,3 +104,4 @@ dist
 .tern-port
 
 # Don't store transpiled code
+lib

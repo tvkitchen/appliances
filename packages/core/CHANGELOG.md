@@ -13,3 +13,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Increase the `base-classes` version dependency to 1.2.0.
+- Increase the `base-interfaces` version dependency to 2.0.0.
+- Improve the AbstractAppliance to use the updated IAppliance API.

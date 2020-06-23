@@ -1,7 +1,7 @@
 {
   "name": "@tvkitchen/appliances",
   "private": true,
-  "repository": "git@github.com:tvkitchen/tvka-template.git",
+  "repository": "github:tvkitchen/appliances",
   "author": "Bad Idea Factory <biffuddotcom@biffud.com>",
   "license": "Apache-2.0",
   "scripts": {

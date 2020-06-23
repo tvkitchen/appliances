@@ -8,5 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ### Added
-
 - Initial implementation of the AbstractAppliance
+
+### Changed
+- Increase the `base-classes` version dependency to 1.2.0.

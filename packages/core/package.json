@@ -11,7 +11,7 @@
   "main": "lib/index.js",
   "module": "src/index.js",
   "dependencies": {
-    "@tvkitchen/base-classes": "^1.1.0",
+    "@tvkitchen/base-classes": "^1.2.1",
     "@tvkitchen/base-errors": "^1.0.1",
     "@tvkitchen/base-interfaces": "^1.0.1"
   },

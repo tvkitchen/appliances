@@ -1028,7 +1028,12 @@
   dependencies:
     type-detect "4.0.8"
 
-"@tvkitchen/base-classes@^1.1.0":
+"@tvkitchen/base-classes@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/base-classes/-/base-classes-1.2.1.tgz#4a17fa59ca14146c72168627f086b484c095d8a6"
+  integrity sha512-2jeQSczfmNmJ7UDSVyGh3F1uLoNmmrlZh3qZZwM6ezw5E2hD+CZEcq2JEH0UBJmvQG403iNDE7bWqYHEXA15+w==
+
+"@tvkitchen/base-constants@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-classes/-/base-classes-1.1.0.tgz#c74d79b4b1181e529d2ed7f0eb2f62e95b9781c8"
   integrity sha512-t0ID7KzM1mwlWtZq9cJppuLKjpSWKo2VQl6ToKRWmf2T+6SwSaayE5ThSId1gGCn4JoBITUwF6HEwMpGvxfcGw==

@@ -1,3 +1,2 @@
-import AbstractAppliance from './AbstractAppliance'
-
-export default AbstractAppliance
+/* eslint-disable import/prefer-default-export */
+export { default as AbstractAppliance } from './AbstractAppliance'

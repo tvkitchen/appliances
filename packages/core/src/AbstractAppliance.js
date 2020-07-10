@@ -6,7 +6,6 @@ import {
 	Payload,
 	PayloadArray,
 } from '@tvkitchen/base-classes'
-import { applianceEvents } from '@tvkitchen/base-constants'
 
 /**
  * The Abstract Appliance begins to implement the IAppliance interface and implements
@@ -38,8 +37,6 @@ class AbstractAppliance extends IAppliance {
 	}
 
 	ingestPayload = async (payload) => {
-		this.emitter.emit(INPUT_RECEIVED, { payload })
-
 		assert(
 			Payload.isPayload(payload),
 			'You cannot ingest data that is not an instance of Payload.',
@@ -61,7 +58,14 @@ class AbstractAppliance extends IAppliance {
 
 	on = (eventType, listener) => this.emitter.on(eventType, listener)
 
-	emitResult = (payload) => this.emitter.emit(applianceEvents.PAYLOAD, payload)
+  /**
+   * Emits an event to listeners.
+   *
+   * @param  {String} event The event type to emit.
+   * @param  {Object} args  Any associated data to include in the event.
+   * @return {Boolean} Returns true if the event had listeners, false otherwise.
+   */
+  emit = (event, ...args) => this.emitter.emit(event, ...args)
 }
 
 export default AbstractAppliance

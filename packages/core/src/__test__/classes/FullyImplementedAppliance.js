@@ -7,7 +7,7 @@ class FullyImplementedAppliance extends AbstractAppliance {
 
 	isValidPayload = async () => true
 
-	invoke = async () => true
+	invoke = async (payloads) => payloads
 }
 
 export default FullyImplementedAppliance

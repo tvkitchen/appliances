@@ -1,6 +1,10 @@
 import { AssertionError } from 'assert'
 import { AbstractInstantiationError } from '@tvkitchen/base-errors'
-import { Payload } from '@tvkitchen/base-classes'
+import {
+	Payload,
+	PayloadArray,
+} from '@tvkitchen/base-classes'
+import { applianceEvents } from '@tvkitchen/base-constants'
 import AbstractAppliance from '../AbstractAppliance'
 import {
 	FullyImplementedAppliance,
@@ -48,6 +52,58 @@ describe('AbstractAppliance #unit', () => {
 			const payload = new Payload()
 			await implementedAppliance.ingestPayload(payload)
 			expect(invokeSpy).toHaveBeenCalledTimes(1)
+		})
+
+		it('should pass invoke the list of ingested payloads', async () => {
+			const implementedAppliance = new FullyImplementedAppliance()
+			const invokeSpy = jest.spyOn(implementedAppliance, 'invoke')
+			const payload = new Payload()
+			await implementedAppliance.ingestPayload(payload)
+			expect(invokeSpy.mock.calls[0][0] instanceof PayloadArray).toBe(true)
+			expect(invokeSpy.mock.calls[0][0].length).toBe(1)
+		})
+
+		it('should update payloads to be the return value of invoke()', async () => {
+			const implementedAppliance = new FullyImplementedAppliance()
+			const payload = new Payload()
+			const remainingPayloads = new PayloadArray()
+			implementedAppliance.invoke = jest.fn().mockReturnValueOnce(remainingPayloads)
+			await implementedAppliance.ingestPayload(payload)
+			expect(implementedAppliance.payloads).toBe(remainingPayloads)
+		})
+
+		it('should return true if invoke returns an empty payload array', async () => {
+			const implementedAppliance = new FullyImplementedAppliance()
+			const payload = new Payload()
+			const remainingPayloads = new PayloadArray()
+			implementedAppliance.invoke = jest.fn().mockReturnValueOnce(remainingPayloads)
+			expect(await implementedAppliance.ingestPayload(payload)).toBe(true)
+		})
+
+		it('should return false if invoke returns a payload array of the same size', async () => {
+			const implementedAppliance = new FullyImplementedAppliance()
+			const payload = new Payload()
+			const remainingPayloads = new PayloadArray(
+				new Payload(),
+			)
+			implementedAppliance.invoke = jest.fn().mockReturnValueOnce(remainingPayloads)
+			expect(await implementedAppliance.ingestPayload(payload)).toBe(false)
+		})
+	})
+
+	describe('emit', () => {
+		it('should emit an event of the specified type', () => {
+			const implementedAppliance = new FullyImplementedAppliance()
+			const emitSpy = jest.spyOn(implementedAppliance.emitter, 'emit')
+			implementedAppliance.emit(applianceEvents.STARTING)
+			expect(emitSpy).toBeCalledWith(applianceEvents.STARTING)
+		})
+		it('should emit an event with specified args', () => {
+			const implementedAppliance = new FullyImplementedAppliance()
+			const payload = new Payload()
+			const emitSpy = jest.spyOn(implementedAppliance.emitter, 'emit')
+			implementedAppliance.emit(applianceEvents.PAYLOAD, payload)
+			expect(emitSpy).toBeCalledWith(applianceEvents.PAYLOAD, payload)
 		})
 	})
 })

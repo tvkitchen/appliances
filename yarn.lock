@@ -1028,21 +1028,28 @@
   dependencies:
     type-detect "4.0.8"
 
-"@tvkitchen/base-classes@link:packages/core/^1.3.0":
-  version "0.0.0"
-  uid ""
+"@tvkitchen/base-classes@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/base-classes/-/base-classes-1.3.0.tgz#0cf56fcd3deed95097a5b9fe6aed3794f15dce53"
+  integrity sha512-cpeOeK9EQ84ty8heXn4lhJn2uLHGGQj0jsBbm2CPv0APSi2WmH6Mzpv7iUvsEzksqbltJ5plyG6YCdfKz/RaoA==
 
-"@tvkitchen/base-constants@link:packages/core/^1.2.0":
-  version "0.0.0"
-  uid ""
+"@tvkitchen/base-constants@^1.1.0", "@tvkitchen/base-constants@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/base-constants/-/base-constants-1.2.0.tgz#020246bd1ff700e67066eea2e708dc5254cbcb9d"
+  integrity sha512-9oyAYcMwWH1NiM9kFJ6yxameRBb58gq3/NCPBcXxVRe8IdHnQ3XKVC0fw0J3pfeOgOHayEeVTtEcSx4FlhilOw==
 
-"@tvkitchen/base-errors@link:packages/core/^1.0.1":
-  version "0.0.0"
-  uid ""
+"@tvkitchen/base-errors@^1.0.0", "@tvkitchen/base-errors@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/base-errors/-/base-errors-1.0.1.tgz#1117e17c8a0888989ad155d1318d03b6a6ab942f"
+  integrity sha512-AHb+LYbughr1dggUFiAA7y079ZRrjgLiW2KOJgeHbQXSr1kcaxcAnISUV8e1EYuUODhmN1FD8ka9T0d9+RLzKQ==
 
-"@tvkitchen/base-interfaces@link:packages/core/^3.0.0":
-  version "0.0.0"
-  uid ""
+"@tvkitchen/base-interfaces@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/base-interfaces/-/base-interfaces-3.0.0.tgz#1c475f032894675d56df4a8a2f46ed7c6d84bc57"
+  integrity sha512-sKhRYSVc65r/hlGRPgQlQfzIrn3frfUOrozomzZhAm49tbw9hTteg6yYcvaYI+pP/JDtC+i3vkv3/aiEoKccxA==
+  dependencies:
+    "@tvkitchen/base-constants" "^1.1.0"
+    "@tvkitchen/base-errors" "^1.0.0"
 
 "@types/babel__core@^7.1.7":
   version "7.1.7"
@@ -3486,9 +3493,9 @@ lodash.sortby@^4.7.0:
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
 lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 lolex@^5.0.0:
   version "5.1.2"

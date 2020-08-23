@@ -1,0 +1,23 @@
+{
+  "name": "@tvkitchen/appliance-http-ingestion",
+  "description": "Converts a video url into MPEG-TS Payloads.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tvkitchen/appliances.git",
+    "directory": "packages/video-http-ingestion"
+  },
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "dependencies": {
+    "@tvkitchen/appliance-core": "0.2.0",
+    "node-fetch": "^2.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "nock": "^13.0.4"
+  }
+}

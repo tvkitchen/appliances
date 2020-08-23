@@ -1033,7 +1033,7 @@
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-classes/-/base-classes-1.3.0.tgz#0cf56fcd3deed95097a5b9fe6aed3794f15dce53"
   integrity sha512-cpeOeK9EQ84ty8heXn4lhJn2uLHGGQj0jsBbm2CPv0APSi2WmH6Mzpv7iUvsEzksqbltJ5plyG6YCdfKz/RaoA==
 
-"@tvkitchen/base-constants@^1.1.0", "@tvkitchen/base-constants@^1.2.0":
+"@tvkitchen/base-constants@1.2.0", "@tvkitchen/base-constants@^1.1.1", "@tvkitchen/base-constants@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-constants/-/base-constants-1.2.0.tgz#020246bd1ff700e67066eea2e708dc5254cbcb9d"
   integrity sha512-9oyAYcMwWH1NiM9kFJ6yxameRBb58gq3/NCPBcXxVRe8IdHnQ3XKVC0fw0J3pfeOgOHayEeVTtEcSx4FlhilOw==
@@ -1043,12 +1043,12 @@
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-errors/-/base-errors-1.0.1.tgz#1117e17c8a0888989ad155d1318d03b6a6ab942f"
   integrity sha512-AHb+LYbughr1dggUFiAA7y079ZRrjgLiW2KOJgeHbQXSr1kcaxcAnISUV8e1EYuUODhmN1FD8ka9T0d9+RLzKQ==
 
-"@tvkitchen/base-interfaces@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@tvkitchen/base-interfaces/-/base-interfaces-3.0.0.tgz#1c475f032894675d56df4a8a2f46ed7c6d84bc57"
-  integrity sha512-sKhRYSVc65r/hlGRPgQlQfzIrn3frfUOrozomzZhAm49tbw9hTteg6yYcvaYI+pP/JDtC+i3vkv3/aiEoKccxA==
+"@tvkitchen/base-interfaces@4.0.0-alpha.1":
+  version "4.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/base-interfaces/-/base-interfaces-4.0.0-alpha.1.tgz#dca15fc07be492a3b726bd9c04e936dad8438e2b"
+  integrity sha512-i0kBOgVn3ASDrFoe++lfiYfxIiSOc5/jhWI+VlXJaxd5MBVtjNI0wltly/2VX8c4hlZ+TKDSpm3c7SmHQ5HoPQ==
   dependencies:
-    "@tvkitchen/base-constants" "^1.1.0"
+    "@tvkitchen/base-constants" "^1.1.1"
     "@tvkitchen/base-errors" "^1.0.0"
 
 "@types/babel__core@^7.1.7":
@@ -1681,6 +1681,11 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   integrity sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
   dependencies:
     delayed-stream "~1.0.0"
+
+command-exists@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/command-exists/-/command-exists-1.2.9.tgz#c50725af3808c8ab0260fd60b01fbfa25b954f69"
+  integrity sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w==
 
 commander@^4.0.1:
   version "4.1.1"
@@ -4911,6 +4916,11 @@ tr46@^1.0.1:
   integrity sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
   dependencies:
     punycode "^2.1.0"
+
+ts-demuxer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ts-demuxer/-/ts-demuxer-1.0.0.tgz#b0b873e7951a5a272e671acb82f622256d9eb891"
+  integrity sha512-76K1Tyb82CbawAUJ6Qz76TykS3SdgEWpJtE3GkUdBvOgdc/mkxns/1dDsViUNpmWZkBDWGBtnJl4EsYULc7Ruw==
 
 tslib@^1.9.0:
   version "1.11.1"

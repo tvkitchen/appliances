@@ -1,2 +1,2 @@
-/* eslint-disable import/prefer-default-export */
 export { default as AbstractAppliance } from './AbstractAppliance'
+export { default as AbstractVideoIngestionAppliance } from './AbstractVideoIngestionAppliance'

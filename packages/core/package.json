@@ -1,7 +1,7 @@
 {
   "name": "@tvkitchen/appliance-core",
-  "description": "An abstract Appliance with implemented core functionality.",
-  "version": "1.0.0",
+  "description": "Core classes for use by TV Kitchen Appliances",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tvkitchen/appliances.git",

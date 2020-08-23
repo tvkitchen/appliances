@@ -1,6 +1,6 @@
 # TV Kitchen Appliance Core
 
-This package contains core classes and constants for use by TV Kitchen Appliances and code that interacts with TV Kitchen Appliances.
+This package contains core classes for use by TV Kitchen Appliances and code that interacts with TV Kitchen Appliances.
 
 ## Key Contents
 

@@ -1,7 +1,7 @@
 {
   "name": "@tvkitchen/appliance-core",
   "description": "Core classes for use by TV Kitchen Appliances",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tvkitchen/appliances.git",
@@ -12,11 +12,11 @@
   "module": "src/index.js",
   "dependencies": {
     "@tvkitchen/base-classes": "^1.3.0",
+    "@tvkitchen/base-constants": "^1.2.0",
     "@tvkitchen/base-errors": "^1.0.1",
-    "@tvkitchen/base-interfaces": "^3.0.0"
-  },
-  "devDependencies": {
-    "@tvkitchen/base-constants": "^1.2.0"
+    "@tvkitchen/base-interfaces": "4.0.0-alpha.2",
+    "command-exists": "^1.2.9",
+    "ts-demuxer": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"

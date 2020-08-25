@@ -11,3 +11,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial implementation of the `VideoFileIngestion` appliance.
 
 ### Changed
+- Corrected the path to be `packages/video-file-ingestion`.

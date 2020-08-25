@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [Unreleased]
+
+## [0.2.0] - 2020-08-25
 ### Added
 - Initial implementation of the `AbstractVideoIngestionAppliance`.
 
@@ -22,4 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Increase the `base-classes` version dependency to `1.3.0`.
 - Increase the `base-interfaces` version dependency to `3.0.0`.
 
+[Unreleased]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.2.0...HEAD
+[0.2.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.1.0...0.2.0
 [0.1.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.1.0

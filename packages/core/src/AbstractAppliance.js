@@ -25,14 +25,14 @@ class AbstractAppliance extends IAppliance {
 
 	payloads = new PayloadArray()
 
-	constructor(overrideSettings = {}) {
+	constructor(settings = {}) {
 		super()
 		if (this.constructor === AbstractAppliance) {
 			throw new AbstractInstantiationError('AbstractAppliance')
 		}
 		Object.assign(
 			this.settings,
-			overrideSettings,
+			settings,
 		)
 	}
 

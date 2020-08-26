@@ -36,6 +36,16 @@ class AbstractAppliance extends IAppliance {
 		)
 	}
 
+	/** @inheritdoc */
+	isValidPayload = async (payload) => {
+		assert(
+			this.constructor.getInputTypes().includes(payload.type),
+			`${payload.type} is not a valid Payload type for this appliance.`,
+		)
+		return true
+	}
+
+	/** @inheritdoc */
 	ingestPayload = async (payload) => {
 		assert(
 			Payload.isPayload(payload),
@@ -56,6 +66,7 @@ class AbstractAppliance extends IAppliance {
 		return werePayloadsProcessed
 	}
 
+	/** @inheritdoc */
 	on = (eventType, listener) => this.emitter.on(eventType, listener)
 
   /**

@@ -1,11 +1,9 @@
 import AbstractAppliance from '../../AbstractAppliance'
 
 class FullyImplementedAppliance extends AbstractAppliance {
-	getInputTypes = () => []
+	static getInputTypes = () => ['FOO']
 
-	getOutputTypes = () => []
-
-	isValidPayload = async () => true
+	static getOutputTypes = () => ['BAR']
 
 	invoke = async (payloads) => payloads
 }

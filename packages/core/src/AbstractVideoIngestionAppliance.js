@@ -48,8 +48,8 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	// A Writeable stream that will ingest Payloads into the TV Kitchen pipeline.
 	payloadIngestionStream = null
 
-	constructor(overrideSettings = {}) {
-		super(overrideSettings)
+	constructor(settings = {}) {
+		super(settings)
 		if (this.constructor === AbstractVideoIngestionAppliance) {
 			throw new AbstractInstantiationError(this.constructor.name)
 		}

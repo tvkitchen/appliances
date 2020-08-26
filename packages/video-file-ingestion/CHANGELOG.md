@@ -12,3 +12,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Corrected the path to be `packages/video-file-ingestion`.
+- Renamed `overrideSettings` to `settings`.

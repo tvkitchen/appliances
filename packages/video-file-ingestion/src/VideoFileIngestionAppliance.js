@@ -3,8 +3,6 @@ import { applianceEvents } from '@tvkitchen/base-constants'
 import { AbstractVideoIngestionAppliance } from '@tvkitchen/appliance-core'
 
 class VideoFileIngestionAppliance extends AbstractVideoIngestionAppliance {
-	filePath = null
-
 	/**
 	* Create a VideoFileIngestionEngine.
 	*
@@ -17,11 +15,10 @@ class VideoFileIngestionAppliance extends AbstractVideoIngestionAppliance {
 		if (!settings.filePath) {
 			throw new Error('VideoFileIngestionAppliances must be instantiated with a configured filePath.')
 		}
-		this.filePath = settings.filePath
 	}
 
 	/** @inheritdoc */
-	getInputStream = () => fs.createReadStream(this.filePath)
+	getInputStream = () => fs.createReadStream(this.settings.filePath)
 
 	/** @inheritdoc */
 	start = async () => {

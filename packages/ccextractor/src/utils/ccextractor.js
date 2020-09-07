@@ -1,4 +1,5 @@
 import { Payload } from '@tvkitchen/base-classes'
+import { dataTypes } from '@tvkitchen/base-constants'
 import CCExtractorLine from '../CCExtractorLine'
 import { getDiff } from './string'
 
@@ -82,6 +83,7 @@ export const convertCcExtractorLineToPayload = (line, previousLine = null) => {
 	const { end } = line
 	return new Payload({
 		data: newCharacters,
+		type: dataTypes.TEXT.ATOM,
 		position: start,
 		duration: end - start,
 	})

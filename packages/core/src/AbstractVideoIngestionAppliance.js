@@ -63,7 +63,10 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 
 		this.payloadIngestionStream = Writable({
 			objectMode: true,
-			write: (payload) => this.emit(applianceEvents.PAYLOAD, payload),
+			write: (payload, enc, done) => {
+				this.emit(applianceEvents.PAYLOAD, payload)
+				done()
+			},
 		})
 	}
 
@@ -152,30 +155,34 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 
 	/** @inheritdoc */
 	start = async () => {
+		this.emit(applianceEvents.STARTING)
 		this.ffmpegProcess = spawn('ffmpeg', this.getFfmpegSettings())
-		await this.producer.connect()
 		this.activeInputStream = this.getInputStream()
 
 		this.logger.info(`Starting ingestion from ${this.constructor.name}...`)
 		this.activeInputStream.pipe(this.ffmpegProcess.stdin)
-		return pipeline(
+		pipeline(
 			this.ffmpegProcess.stdout,
 			this.mpegtsProcessingStream,
 			this.payloadIngestionStream,
 			() => this.stop(),
 		)
+		this.emit(applianceEvents.READY)
+		return true
 	}
 
 	/** @inheritdoc */
 	stop = async () => {
+		this.emit(applianceEvents.STOPPING)
 		if (this.activeInputStream !== null) {
 			this.activeInputStream.destroy()
 		}
 		if (this.ffmpegProcess !== null) {
 			this.ffmpegProcess.kill()
 		}
-		this.producer.disconnect()
 		this.logger.info(`Ended ingestion from ${this.constructor.name}...`)
+		this.emit(applianceEvents.STOPPED)
+		return true
 	}
 
 	/** @inheritdoc */

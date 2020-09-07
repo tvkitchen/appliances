@@ -11,8 +11,7 @@
   "main": "lib/index.js",
   "module": "src/index.js",
   "dependencies": {
-    "@tvkitchen/appliance-core": "0.2.0",
-    "@tvkitchen/base-constants": "1.2.0"
+    "@tvkitchen/appliance-core": "0.2.0"
   },
   "publishConfig": {
     "access": "public"

@@ -5,7 +5,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/tvkitchen/appliances.git",
-    "directory": "packages/file-ingestion"
+    "directory": "packages/video-file-ingestion"
   },
   "license": "Apache-2.0",
   "main": "lib/index.js",

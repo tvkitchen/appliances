@@ -1,5 +1,5 @@
 {
-  "name": "@tvkitchen/appliance-http-ingestion",
+  "name": "@tvkitchen/appliance-video-http-ingestion",
   "description": "Converts a video url into MPEG-TS Payloads.",
   "version": "0.1.0",
   "repository": {

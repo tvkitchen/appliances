@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1]
+### Fixed
+- `start` and `stop` no longer attempts to access `producer` in `AbstractVideoIngestionAppliance`.
+- `AbstractVideoIngestionAppliance` properly returns booleans for `start` and `stop`.
+
 ## [0.3.0]
 ### Changed
 - Rename `overrideSettings` to `settings` in abstract appliance classes.
@@ -31,7 +36,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Increase the `base-classes` version dependency to `1.3.0`.
 - Increase the `base-interfaces` version dependency to `3.0.0`.
 
-[Unreleased]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.2.0...HEAD
-[0.3.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.2.0...0.3.0
-[0.2.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.1.0...0.2.0
+[Unreleased]: https://github.com/tvkitchen/appliances/compare/@tvkitchen/appliance-video-file-ingestion@0.3.1...HEAD
+[0.3.1]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.3.1
+[0.3.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.3.0
+[0.2.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.2.0
 [0.1.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.1.0

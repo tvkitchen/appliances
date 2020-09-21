@@ -76,7 +76,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 * @return {String[]} A list of FFmpeg command line parameters
 	 */
 	getFfmpegSettings = () => [
-		'-loglevel', 'info',
+		'-loglevel', 'quiet',
 		'-i', '-',
 		'-codec', 'copy',
 		'-f', 'mpegts',
@@ -156,7 +156,11 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	/** @inheritdoc */
 	start = async () => {
 		this.emit(applianceEvents.STARTING)
-		this.ffmpegProcess = spawn('ffmpeg', this.getFfmpegSettings())
+		this.ffmpegProcess = spawn(
+			'ffmpeg',
+			this.getFfmpegSettings(),
+			{ stdio: ['pipe', 'pipe', 'ignore'] },
+		)
 		this.activeInputStream = this.getInputStream()
 
 		this.logger.info(`Starting ingestion from ${this.constructor.name}...`)

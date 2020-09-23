@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Changed from default exports to named exports.
+- Update the required version of appliance-core to 0.4.0
 
 ## [0.1.1] - 2020-09-16
 ### Changed

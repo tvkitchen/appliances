@@ -79,4 +79,4 @@ class AbstractAppliance extends IAppliance {
   emit = (event, ...args) => this.emitter.emit(event, ...args)
 }
 
-export default AbstractAppliance
+export { AbstractAppliance }

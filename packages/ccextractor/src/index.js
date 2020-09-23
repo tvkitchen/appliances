@@ -1,3 +1,2 @@
-import CCExtractorAppliance from './CCExtractorAppliance'
-
-export default CCExtractorAppliance
+export { CCExtractorAppliance } from './CCExtractorAppliance'
+export { CCExtractorLine } from './CCExtractorLine'

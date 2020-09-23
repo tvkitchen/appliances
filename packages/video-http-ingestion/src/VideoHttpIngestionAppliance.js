@@ -44,4 +44,4 @@ class VideoHttpIngestionAppliance extends AbstractVideoIngestionAppliance {
 	}
 }
 
-export default VideoHttpIngestionAppliance
+export { VideoHttpIngestionAppliance }

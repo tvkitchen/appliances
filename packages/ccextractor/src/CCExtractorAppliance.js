@@ -13,7 +13,7 @@ import {
 	convertCcExtractorLineToPayload,
 } from './utils/ccextractor'
 
-class CaptionAppliance extends AbstractAppliance {
+class CCExtractorAppliance extends AbstractAppliance {
 	ccExtractorProcess = null
 
 	mostRecentLine = null
@@ -87,4 +87,4 @@ class CaptionAppliance extends AbstractAppliance {
 	}
 }
 
-export default CaptionAppliance
+export { CCExtractorAppliance }

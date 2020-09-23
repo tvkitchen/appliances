@@ -20,4 +20,4 @@ class VideoFileIngestionAppliance extends AbstractVideoIngestionAppliance {
 	getInputStream = () => fs.createReadStream(this.settings.filePath)
 }
 
-export default VideoFileIngestionAppliance
+export { VideoFileIngestionAppliance }

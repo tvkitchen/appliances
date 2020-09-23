@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 /**
  * Returns the difference between two strings.
  *

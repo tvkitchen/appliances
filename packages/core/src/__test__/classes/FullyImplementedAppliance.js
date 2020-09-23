@@ -1,4 +1,4 @@
-import AbstractAppliance from '../../AbstractAppliance'
+import { AbstractAppliance } from '../../AbstractAppliance'
 
 class FullyImplementedAppliance extends AbstractAppliance {
 	static getInputTypes = () => ['FOO']
@@ -8,4 +8,4 @@ class FullyImplementedAppliance extends AbstractAppliance {
 	invoke = async (payloads) => payloads
 }
 
-export default FullyImplementedAppliance
+export { FullyImplementedAppliance }

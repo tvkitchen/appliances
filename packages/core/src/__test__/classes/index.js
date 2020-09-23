@@ -1,8 +1,6 @@
-export { default as FullyImplementedAppliance } from './FullyImplementedAppliance'
-export { default as PartiallyImplementedAppliance } from './PartiallyImplementedAppliance'
+export { FullyImplementedAppliance } from './FullyImplementedAppliance'
+export { PartiallyImplementedAppliance } from './PartiallyImplementedAppliance'
+export { FullyImplementedVideoIngestionAppliance } from './FullyImplementedVideoIngestionAppliance'
 export {
-	default as FullyImplementedVideoIngestionAppliance,
-} from './FullyImplementedVideoIngestionAppliance'
-export {
-	default as PartiallyImplementedIngestionAppliance,
+	PartiallyImplementedVideoIngestionAppliance,
 } from './PartiallyImplementedVideoIngestionAppliance'

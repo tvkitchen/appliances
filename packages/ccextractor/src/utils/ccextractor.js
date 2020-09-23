@@ -1,6 +1,6 @@
 import { Payload } from '@tvkitchen/base-classes'
 import { dataTypes } from '@tvkitchen/base-constants'
-import CCExtractorLine from '../CCExtractorLine'
+import { CCExtractorLine } from '../CCExtractorLine'
 import { getDiff } from './string'
 
 /**

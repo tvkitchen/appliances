@@ -15,7 +15,7 @@ import {
 	NotImplementedError,
 } from '@tvkitchen/base-errors'
 import { TSDemuxer } from 'ts-demuxer'
-import AbstractAppliance from './AbstractAppliance'
+import { AbstractAppliance } from './AbstractAppliance'
 import {
 	tsToMilliseconds,
 	generateEmptyPacket,
@@ -201,4 +201,4 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	static getOutputTypes = () => [dataTypes.STREAM.CONTAINER]
 }
 
-export default AbstractVideoIngestionAppliance
+export { AbstractVideoIngestionAppliance }

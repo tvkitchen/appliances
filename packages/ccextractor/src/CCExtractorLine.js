@@ -1,4 +1,3 @@
-
 class CCExtractorLine {
 	constructor({
 		start = 0,
@@ -13,4 +12,4 @@ class CCExtractorLine {
 	}
 }
 
-export default CCExtractorLine
+export { CCExtractorLine }

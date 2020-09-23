@@ -1,6 +1,6 @@
 import { dataTypes } from '@tvkitchen/base-constants'
 import commandExists from 'command-exists'
-import CCExtractorAppliance from '..'
+import { CCExtractorAppliance } from '..'
 
 jest.mock('command-exists')
 

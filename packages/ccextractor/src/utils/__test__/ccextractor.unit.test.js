@@ -5,7 +5,7 @@ import {
 	ccExtractorTimestampToMs,
 	convertCcExtractorLineToPayload,
 } from '../ccextractor'
-import CCExtractorLine from '../../CCExtractorLine'
+import { CCExtractorLine } from '../../CCExtractorLine'
 
 describe('ccextractor utils #unit', () => {
 	describe('parseCcExtractorLine', () => {

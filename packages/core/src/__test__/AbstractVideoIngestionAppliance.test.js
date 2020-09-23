@@ -11,9 +11,11 @@ import {
 } from '@tvkitchen/base-errors'
 import { dataTypes } from '@tvkitchen/base-constants'
 import { Payload } from '@tvkitchen/base-classes'
-import AbstractVideoIngestionAppliance from '../AbstractVideoIngestionAppliance'
-import FullyImplementedVideoIngestionAppliance from './classes/FullyImplementedVideoIngestionAppliance'
-import PartiallyImplementedVideoIngestionAppliance from './classes/PartiallyImplementedVideoIngestionAppliance'
+import { AbstractVideoIngestionAppliance } from '../AbstractVideoIngestionAppliance'
+import {
+	FullyImplementedVideoIngestionAppliance,
+	PartiallyImplementedVideoIngestionAppliance,
+} from './classes'
 
 // Set up mocks
 jest.mock('child_process')

@@ -5,7 +5,7 @@ import {
 	PayloadArray,
 } from '@tvkitchen/base-classes'
 import { applianceEvents } from '@tvkitchen/base-constants'
-import AbstractAppliance from '../AbstractAppliance'
+import { AbstractAppliance } from '../AbstractAppliance'
 import {
 	FullyImplementedAppliance,
 	PartiallyImplementedAppliance,

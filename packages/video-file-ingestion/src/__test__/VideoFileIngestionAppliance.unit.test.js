@@ -1,6 +1,6 @@
 import path from 'path'
 import { ReadStream } from 'fs'
-import VideoFileIngestionAppliance from '../VideoFileIngestionAppliance'
+import { VideoFileIngestionAppliance } from '../VideoFileIngestionAppliance'
 
 describe('VideoFileIngestionAppliance #unit', () => {
 	describe('constructor', () => {

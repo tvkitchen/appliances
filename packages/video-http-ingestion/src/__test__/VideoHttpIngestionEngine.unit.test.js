@@ -1,5 +1,5 @@
 import nock from 'nock'
-import VideoHttpIngestionAppliance from '../VideoHttpIngestionAppliance'
+import { VideoHttpIngestionAppliance } from '../VideoHttpIngestionAppliance'
 
 describe('VideoHttpIngestionAppliance #unit', () => {
 	describe('constructor', () => {

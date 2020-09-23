@@ -1,5 +1,5 @@
-import AbstractVideoIngestionAppliance from '../../AbstractVideoIngestionAppliance'
+import { AbstractVideoIngestionAppliance } from '../../AbstractVideoIngestionAppliance'
 
 class PartiallyImplementedVideoIngestionAppliance extends AbstractVideoIngestionAppliance { }
 
-export default PartiallyImplementedVideoIngestionAppliance
+export { PartiallyImplementedVideoIngestionAppliance }

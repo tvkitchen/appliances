@@ -1,3 +1,1 @@
-import VideoHttpIngestionAppliance from './VideoHttpIngestionAppliance'
-
-export default VideoHttpIngestionAppliance
+export { VideoHttpIngestionAppliance } from './VideoHttpIngestionAppliance'

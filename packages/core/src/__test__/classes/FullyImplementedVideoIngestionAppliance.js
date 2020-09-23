@@ -1,4 +1,4 @@
-import AbstractVideoIngestionAppliance from '../../AbstractVideoIngestionAppliance'
+import { AbstractVideoIngestionAppliance } from '../../AbstractVideoIngestionAppliance'
 
 class FullyImplementedVideoIngestionAppliance extends AbstractVideoIngestionAppliance {
 	constructor(readableStream) {
@@ -9,4 +9,4 @@ class FullyImplementedVideoIngestionAppliance extends AbstractVideoIngestionAppl
 	getInputStream = () => this.readableStream
 }
 
-export default FullyImplementedVideoIngestionAppliance
+export { FullyImplementedVideoIngestionAppliance }

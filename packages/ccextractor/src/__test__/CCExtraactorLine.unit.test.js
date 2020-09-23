@@ -1,4 +1,4 @@
-import CCExtractorLine from '../CCExtractorLine'
+import { CCExtractorLine } from '..'
 
 describe('CCExtractorLine', () => {
 	describe('constructor', () => {

@@ -3,7 +3,7 @@
   "private": true,
   "repository": "github:tvkitchen/appliances",
   "author": "Bad Idea Factory <biffuddotcom@biffud.com>",
-  "license": "Apache-2.0",
+  "license": "LGPL-3.0",
   "scripts": {
     "build": "yarn workspaces run babel --root-mode upward src -d lib",
     "lint": "eslint .",

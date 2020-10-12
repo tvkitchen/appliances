@@ -131,7 +131,9 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 				stdin: new Writable(),
 			})
 			const inputStream = new Readable({ read: () => {} })
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance(inputStream)
+			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance({
+				readableStream: inputStream,
+			})
 			ingestionAppliance.producer = { connect: jest.fn().mockResolvedValue() }
 			ingestionAppliance.start()
 			expect(childProcess.spawn).toHaveBeenCalledTimes(1)
@@ -144,7 +146,9 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			})
 			childProcess.spawn.mockReturnValueOnce({})
 			const inputStream = new Readable({ read: jest.fn() })
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance(inputStream)
+			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance({
+				readableStream: inputStream,
+			})
 			ingestionAppliance.producer = { connect: jest.fn().mockResolvedValue() }
 			await ingestionAppliance.start()
 			expect(stream.pipeline).toHaveBeenCalledTimes(1)

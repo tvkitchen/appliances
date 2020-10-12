@@ -4,7 +4,6 @@ import {
 	Payload,
 	PayloadArray,
 } from '@tvkitchen/base-classes'
-import { applianceEvents } from '@tvkitchen/base-constants'
 import { AbstractAppliance } from '../AbstractAppliance'
 import {
 	FullyImplementedAppliance,
@@ -105,22 +104,6 @@ describe('AbstractAppliance #unit', () => {
 			)
 			implementedAppliance.invoke = jest.fn().mockReturnValueOnce(remainingPayloads)
 			expect(await implementedAppliance.ingestPayload(payload)).toBe(false)
-		})
-	})
-
-	describe('emit', () => {
-		it('should emit an event of the specified type', () => {
-			const implementedAppliance = new FullyImplementedAppliance()
-			const emitSpy = jest.spyOn(implementedAppliance.emitter, 'emit')
-			implementedAppliance.emit(applianceEvents.STARTING)
-			expect(emitSpy).toBeCalledWith(applianceEvents.STARTING)
-		})
-		it('should emit an event with specified args', () => {
-			const implementedAppliance = new FullyImplementedAppliance()
-			const payload = getValidPayload()
-			const emitSpy = jest.spyOn(implementedAppliance.emitter, 'emit')
-			implementedAppliance.emit(applianceEvents.PAYLOAD, payload)
-			expect(emitSpy).toBeCalledWith(applianceEvents.PAYLOAD, payload)
 		})
 	})
 })

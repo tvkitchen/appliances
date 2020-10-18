@@ -1,9 +1,9 @@
 import { AbstractVideoIngestionAppliance } from '../../AbstractVideoIngestionAppliance'
 
 class FullyImplementedVideoIngestionAppliance extends AbstractVideoIngestionAppliance {
-	constructor(readableStream) {
-		super()
-		this.readableStream = readableStream
+	constructor(settings = {}) {
+		super(settings)
+		this.readableStream = settings.readableStream
 	}
 
 	getInputStream = () => this.readableStream

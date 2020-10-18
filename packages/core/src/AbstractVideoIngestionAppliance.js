@@ -6,10 +6,7 @@ import {
 } from 'stream'
 import commandExists from 'command-exists'
 import { Payload } from '@tvkitchen/base-classes'
-import {
-	dataTypes,
-	applianceEvents,
-} from '@tvkitchen/base-constants'
+import { dataTypes } from '@tvkitchen/base-constants'
 import {
 	AbstractInstantiationError,
 	NotImplementedError,
@@ -64,7 +61,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 		this.payloadIngestionStream = Writable({
 			objectMode: true,
 			write: (payload, enc, done) => {
-				this.emit(applianceEvents.PAYLOAD, payload)
+				this.push(payload)
 				done()
 			},
 		})
@@ -155,7 +152,6 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 
 	/** @inheritdoc */
 	start = async () => {
-		this.emit(applianceEvents.STARTING)
 		this.ffmpegProcess = spawn(
 			'ffmpeg',
 			this.getFfmpegSettings(),
@@ -171,13 +167,11 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 			this.payloadIngestionStream,
 			() => this.stop(),
 		)
-		this.emit(applianceEvents.READY)
 		return true
 	}
 
 	/** @inheritdoc */
 	stop = async () => {
-		this.emit(applianceEvents.STOPPING)
 		if (this.activeInputStream !== null) {
 			this.activeInputStream.destroy()
 		}
@@ -185,7 +179,6 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 			this.ffmpegProcess.kill()
 		}
 		this.logger.info(`Ended ingestion from ${this.constructor.name}...`)
-		this.emit(applianceEvents.STOPPED)
 		return true
 	}
 

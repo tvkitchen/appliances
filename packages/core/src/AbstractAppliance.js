@@ -1,11 +1,11 @@
 import assert from 'assert'
-import EventEmitter from 'events'
 import { AbstractInstantiationError } from '@tvkitchen/base-errors'
 import { IAppliance } from '@tvkitchen/base-interfaces'
 import {
 	Payload,
 	PayloadArray,
 } from '@tvkitchen/base-classes'
+import { silentLogger } from './silentLogger'
 
 /**
  * The Abstract Appliance begins to implement the IAppliance interface and implements
@@ -21,19 +21,18 @@ import {
 class AbstractAppliance extends IAppliance {
 	settings = {}
 
-	emitter = new EventEmitter()
-
 	payloads = new PayloadArray()
 
 	constructor(settings = {}) {
-		super()
+		super(settings)
 		if (this.constructor === AbstractAppliance) {
 			throw new AbstractInstantiationError('AbstractAppliance')
 		}
-		Object.assign(
-			this.settings,
-			settings,
-		)
+		this.settings = {
+			logger: silentLogger,
+			...settings,
+		}
+		this.logger = this.settings.logger
 	}
 
 	/** @inheritdoc */
@@ -65,18 +64,6 @@ class AbstractAppliance extends IAppliance {
 		this.payloads = remainingPayloads
 		return werePayloadsProcessed
 	}
-
-	/** @inheritdoc */
-	on = (eventType, listener) => this.emitter.on(eventType, listener)
-
-  /**
-   * Emits an event to listeners.
-   *
-   * @param  {String} event The event type to emit.
-   * @param  {Object} args  Any associated data to include in the event.
-   * @return {Boolean} Returns true if the event had listeners, false otherwise.
-   */
-  emit = (event, ...args) => this.emitter.emit(event, ...args)
 }
 
 export { AbstractAppliance }

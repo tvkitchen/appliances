@@ -3,10 +3,7 @@ import commandExists from 'command-exists'
 import {
 	PayloadArray,
 } from '@tvkitchen/base-classes'
-import {
-	dataTypes,
-	applianceEvents,
-} from '@tvkitchen/base-constants'
+import { dataTypes } from '@tvkitchen/base-constants'
 import { AbstractAppliance } from '@tvkitchen/appliance-core'
 import {
 	parseCcExtractorLines,
@@ -38,7 +35,7 @@ class CCExtractorAppliance extends AbstractAppliance {
 				return convertCcExtractorLineToPayload(line, previousLine)
 			})
 			.filter((payload) => payload.data !== '')
-		payloads.forEach((payload) => this.emit(applianceEvents.PAYLOAD, payload))
+		payloads.forEach((payload) => this.push(payload))
 	}
 
 	/** @inheritdoc */
@@ -53,7 +50,6 @@ class CCExtractorAppliance extends AbstractAppliance {
 
 	/** @inheritdoc */
 	start = async () => {
-		this.emit(applianceEvents.STARTING)
 		this.ccExtractorProcess = spawn('ccextractor', [
 			'-stdout',
 			'--stream',
@@ -64,16 +60,13 @@ class CCExtractorAppliance extends AbstractAppliance {
 			'-',
 		])
 		this.ccExtractorProcess.stdout.on('data', this.handleCcExtractorData)
-		this.emit(applianceEvents.READY)
 	}
 
 	/** @inheritdoc */
 	stop = async () => {
-		this.emit(applianceEvents.STOPPING)
 		if (this.ccExtractorProcess !== null) {
 			this.ccExtractorProcess.kill()
 		}
-		this.emit(applianceEvents.STOPPED)
 	}
 
 	/** @inheritdoc */

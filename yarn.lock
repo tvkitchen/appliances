@@ -1028,6 +1028,18 @@
   dependencies:
     type-detect "4.0.8"
 
+"@tvkitchen/appliance-core@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/appliance-core/-/appliance-core-0.5.0.tgz#8934d5693852b6fa3a1b34dea5cd562598953738"
+  integrity sha512-AIsG9I5hsOZjd/WRGXzB/IjarlkaYm/9eAiyzSstunXEPERlyfJMbdcsIsEAk+PQlR+blQKT9qxlr5cwNZFrIw==
+  dependencies:
+    "@tvkitchen/base-classes" "^1.3.0"
+    "@tvkitchen/base-constants" "^1.2.0"
+    "@tvkitchen/base-errors" "^1.0.1"
+    "@tvkitchen/base-interfaces" "4.0.0-alpha.3"
+    command-exists "^1.2.9"
+    ts-demuxer "^1.0.0"
+
 "@tvkitchen/base-classes@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-classes/-/base-classes-1.3.0.tgz#0cf56fcd3deed95097a5b9fe6aed3794f15dce53"

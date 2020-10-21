@@ -1,0 +1,20 @@
+{
+  "name": "@tvkitchen/appliance-video-image-extractor",
+  "description": "Converts a video stream into png images.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tvkitchen/appliances.git",
+    "directory": "packages/video-image-extractor"
+  },
+  "license": "LGPL-3.0",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "dependencies": {
+    "@tvkitchen/appliance-core": "0.5.0",
+    "command-exists": "^1.2.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

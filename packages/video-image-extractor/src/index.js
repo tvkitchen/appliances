@@ -1,0 +1,1 @@
+export { VideoImageExtractorAppliance } from './VideoImageExtractorAppliance'

@@ -7,7 +7,7 @@ import { dataTypes } from '@tvkitchen/base-constants'
 import { AbstractAppliance } from '@tvkitchen/appliance-core'
 import {
 	parseCcExtractorLines,
-	convertCcExtractorLineToPayload,
+	convertCcExtractorLineToPayloads,
 } from './utils/ccextractor'
 
 class CCExtractorAppliance extends AbstractAppliance {
@@ -29,10 +29,10 @@ class CCExtractorAppliance extends AbstractAppliance {
 		const lines = parseCcExtractorLines(data.toString())
 		const payloads = lines
 			.filter((line) => line.text !== '')
-			.map((line) => {
+			.flatMap((line) => {
 				const previousLine = this.mostRecentLine
 				this.mostRecentLine = line
-				return convertCcExtractorLineToPayload(line, previousLine)
+				return convertCcExtractorLineToPayloads(line, previousLine)
 			})
 			.filter((payload) => payload.data !== '')
 		payloads.forEach((payload) => this.push(payload))

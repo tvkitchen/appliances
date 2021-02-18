@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line 1`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "CLEANUP GUY AND IF YOU L",
+  "duration": 834,
+  "position": 58892,
+  "timestamp": "",
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert the diff between two lines 1`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "OO",
+  "duration": 33,
+  "position": 59726,
+  "timestamp": "",
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should detect and emit new lines 1`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "
+",
+  "duration": 0,
+  "position": 59726,
+  "timestamp": "",
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should detect and emit new lines 2`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "He was as fresh as is the month of May.",
+  "duration": 33,
+  "position": 59726,
+  "timestamp": "",
+  "type": "TEXT.ATOM",
+}
+`;

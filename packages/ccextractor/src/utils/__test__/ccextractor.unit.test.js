@@ -1,9 +1,8 @@
-import { Payload } from '@tvkitchen/base-classes'
 import {
 	parseCcExtractorLine,
 	parseCcExtractorLines,
 	ccExtractorTimestampToMs,
-	convertCcExtractorLineToPayload,
+	convertCcExtractorLineToPayloads,
 } from '../ccextractor'
 import { CCExtractorLine } from '../../CCExtractorLine'
 
@@ -69,22 +68,19 @@ lol this is not valid`))
 			expect(ccExtractorTimestampToMs('90:11:14,123')).toBe(324674123)
 		})
 	})
-	describe('convertCcExtractorLineToPayload', () => {
+	describe('convertCcExtractorLineToPayloads', () => {
 		it('should convert a single line', () => {
 			const ccExtractorLine = new CCExtractorLine({
 				start: 58892,
 				end: 59726,
 				text: 'CLEANUP GUY AND IF YOU L',
 			})
-			const payload = convertCcExtractorLineToPayload(ccExtractorLine)
-			const targetPayload = new Payload({
-				position: 58892,
-				duration: 834,
-				data: 'CLEANUP GUY AND IF YOU L',
+			const payloads = convertCcExtractorLineToPayloads(ccExtractorLine)
+			payloads.forEach((payload) => {
+				expect(payload).toMatchSnapshot({
+					createdAt: expect.any(String),
+				})
 			})
-			expect(payload.position).toEqual(targetPayload.position)
-			expect(payload.duration).toEqual(targetPayload.duration)
-			expect(payload.data).toEqual(targetPayload.data)
 		})
 		it('should convert the diff between two lines', () => {
 			const previousLine = new CCExtractorLine({
@@ -97,10 +93,30 @@ lol this is not valid`))
 				end: 59759,
 				text: 'CLEANUP GUY AND IF YOU LOO',
 			})
-			const payload = convertCcExtractorLineToPayload(newLine, previousLine)
-			expect(payload.position).toEqual(59726)
-			expect(payload.duration).toEqual(33)
-			expect(payload.data).toEqual('OO')
+			const payloads = convertCcExtractorLineToPayloads(newLine, previousLine)
+			payloads.forEach((payload) => {
+				expect(payload).toMatchSnapshot({
+					createdAt: expect.any(String),
+				})
+			})
+		})
+		it('should detect and emit new lines', () => {
+			const previousLine = new CCExtractorLine({
+				start: 58892,
+				end: 59726,
+				text: 'Singing he was, or fluting all the day;',
+			})
+			const newLine = new CCExtractorLine({
+				start: 58892,
+				end: 59759,
+				text: 'He was as fresh as is the month of May.',
+			})
+			const payloads = convertCcExtractorLineToPayloads(newLine, previousLine)
+			payloads.forEach((payload) => {
+				expect(payload).toMatchSnapshot({
+					createdAt: expect.any(String),
+				})
+			})
 		})
 	})
 })

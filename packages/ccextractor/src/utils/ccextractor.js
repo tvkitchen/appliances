@@ -77,14 +77,25 @@ export const parseCcExtractorLines = (str) => str
  * @param  {CCExtractorLine} previousLine [description]
  * @return {[type]}      [description]
  */
-export const convertCcExtractorLineToPayload = (line, previousLine = null) => {
+export const convertCcExtractorLineToPayloads = (line, previousLine = null) => {
 	const newCharacters = getDiff(line.text, previousLine ? previousLine.text : '')
+	const isNewLine = (newCharacters === line.text)
 	const start = previousLine ? previousLine.end : line.start
 	const { end } = line
-	return new Payload({
+	const payloads = []
+	if (isNewLine && previousLine !== null) {
+		payloads.push(new Payload({
+			data: '\n',
+			type: dataTypes.TEXT.ATOM,
+			position: start,
+			duration: 0,
+		}))
+	}
+	payloads.push(new Payload({
 		data: newCharacters,
 		type: dataTypes.TEXT.ATOM,
 		position: start,
 		duration: end - start,
-	})
+	}))
+	return payloads
 }

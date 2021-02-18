@@ -1,0 +1,1 @@
+export { CaptionSrtGeneratorAppliance } from './CaptionSrtGeneratorAppliance'

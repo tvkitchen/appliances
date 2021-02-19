@@ -1,7 +1,7 @@
 {
   "name": "@tvkitchen/appliance-ccextractor",
   "description": "Extracts captions from MPEG-TS Payloads using CCExtractor.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/tvkitchen/appliances.git",

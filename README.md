@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/tvkitchen/appliances.svg?branch=master)](https://travis-ci.com/tvkitchen/appliances)
+[![Build Status](https://travis-ci.com/tvkitchen/appliances.svg?branch=main)](https://travis-ci.com/tvkitchen/appliances)
 
 # TV Kitchen: Appliances
 

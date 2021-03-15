@@ -45,8 +45,16 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	// A Writeable stream that will ingest Payloads into the TV Kitchen pipeline.
 	payloadIngestionStream = null
 
+	/**
+	* Create a AbstractVideoIngestionAppliance.
+	*
+	* @param  {String} settings.origin The ISO timestamp thaat marks the timestamp of position 0.
+	*/
 	constructor(settings = {}) {
-		super(settings)
+		super({
+			origin: (new Date()).toISOString(),
+			...settings,
+		})
 		if (this.constructor === AbstractVideoIngestionAppliance) {
 			throw new AbstractInstantiationError(this.constructor.name)
 		}
@@ -127,12 +135,15 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	processMpegtsStreamData = (mpegtsData, enc, done) => {
 		this.mpegtsDemuxer.process(mpegtsData)
 		const demuxedPacket = this.getMostRecentDemuxedPacket() || generateEmptyPacket()
+		const position = tsToMilliseconds(demuxedPacket.pts)
+		const timestampInMs = (new Date(this.settings.origin)).getTime() + position
 		const payload = new Payload({
 			data: mpegtsData,
 			type: dataTypes.STREAM.CONTAINER,
 			duration: 0,
-			position: tsToMilliseconds(demuxedPacket.pts),
+			position,
 			createdAt: (new Date()).toISOString(),
+			timestamp: (new Date(timestampInMs)).toISOString(),
 		})
 		done(null, payload)
 	}

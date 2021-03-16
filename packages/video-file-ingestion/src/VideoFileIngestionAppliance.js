@@ -7,10 +7,11 @@ class VideoFileIngestionAppliance extends AbstractVideoIngestionAppliance {
 	*
 	* @param  {String} settings.filePath The path of the file to be ingested.
 	*/
-	constructor(settings = {
-		filePath: '',
-	}) {
-		super(settings)
+	constructor(settings) {
+		super({
+			filePath: '',
+			...settings,
+		})
 		if (!settings.filePath) {
 			throw new Error('VideoFileIngestionAppliances must be instantiated with a configured filePath.')
 		}

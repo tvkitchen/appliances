@@ -80,7 +80,7 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 				expect(result.data).toEqual(streamData)
 			})
 		})
-		it('should correctly decorate the Payload with time', () => {
+		it('should correctly decorate the Payload position', () => {
 			jest.clearAllMocks()
 			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
 			ingestionAppliance.mpegtsDemuxer = {
@@ -92,7 +92,39 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
 			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
 				expect(result.position).toEqual(1000)
+			})
+		})
+		it('should correctly decorate the Payload createdAt', () => {
+			jest.clearAllMocks()
+			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
+			ingestionAppliance.mpegtsDemuxer = {
+				process: jest.fn(),
+			}
+			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({
+				pts: 90000,
+			})
+			const streamData = Buffer.from('testDataXYZ', 'utf8')
+			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
 				expect(typeof result.createdAt).toBe('string')
+			})
+		})
+		it('should correctly decorate the Payload timestamp', () => {
+			jest.clearAllMocks()
+			const originTime = new Date()
+			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance({
+				origin: originTime.toISOString(),
+			})
+			ingestionAppliance.mpegtsDemuxer = {
+				process: jest.fn(),
+			}
+			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({
+				pts: 90000,
+			})
+			const streamData = Buffer.from('testDataXYZ', 'utf8')
+			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
+				expect(result.timestamp).toEqual(
+					(new Date(originTime.getTime() + 1000)).toISOString(),
+				)
 			})
 		})
 	})

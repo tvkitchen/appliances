@@ -15,10 +15,11 @@ class VideoHttpIngestionAppliance extends AbstractVideoIngestionAppliance {
 	 *
 	 * @param  {string} settings.url The url of the stream to be ingested
 	 */
-	constructor(settings = {
-		url: '',
-	}) {
-		super(settings)
+	constructor(settings) {
+		super({
+			url: '',
+			...settings,
+		})
 		if (!settings.url) {
 			throw new Error(
 				'HttpIngestionAppliance must be instantiated with a stream URL',

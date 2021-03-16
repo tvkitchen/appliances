@@ -88,6 +88,13 @@ describe('AbstractAppliance #unit', () => {
 			expect(implementedAppliance.payloads).toBe(remainingPayloads)
 		})
 
+		it('should return true if invoke returns null', async () => {
+			const implementedAppliance = new FullyImplementedAppliance()
+			const payload = getValidPayload()
+			implementedAppliance.invoke = jest.fn().mockReturnValueOnce(null)
+			expect(await implementedAppliance.ingestPayload(payload)).toBe(true)
+		})
+
 		it('should return true if invoke returns an empty payload array', async () => {
 			const implementedAppliance = new FullyImplementedAppliance()
 			const payload = getValidPayload()

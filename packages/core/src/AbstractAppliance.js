@@ -55,7 +55,7 @@ class AbstractAppliance extends IAppliance {
 			'Payload does not satisfy appliance ingestion conditions.',
 		)
 		this.payloads.insert(payload)
-		const remainingPayloads = await this.invoke(this.payloads)
+		const remainingPayloads = (await this.invoke(this.payloads)) ?? new PayloadArray()
 		assert(
 			PayloadArray.isPayloadArray(remainingPayloads),
 			'The invoke method was not properly defined; it must return a PayloadArray.',

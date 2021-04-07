@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - `AbstractAppliance` no longer errors if `invoke` returns a null value.
+- Update `@tvkitchen/base-classes` to version `1.4.0-alpha.2`.
 
 ## [0.5.0] - 2020-10-18
 ### Changed

@@ -1033,6 +1033,13 @@
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-classes/-/base-classes-1.3.0.tgz#0cf56fcd3deed95097a5b9fe6aed3794f15dce53"
   integrity sha512-cpeOeK9EQ84ty8heXn4lhJn2uLHGGQj0jsBbm2CPv0APSi2WmH6Mzpv7iUvsEzksqbltJ5plyG6YCdfKz/RaoA==
 
+"@tvkitchen/base-classes@^1.4.0-alpha.2":
+  version "1.4.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/base-classes/-/base-classes-1.4.0-alpha.2.tgz#8bf355433bd088d5a2fa07de00d25105dcdfcc9a"
+  integrity sha512-xH0PS08AObEG2ZxnOrAbMBAb8ReMm8dwTd8ZKK5OyNAU4tSQmx8pLx4JQQIkwckms37RJM4VOrw5Wvulh44ExA==
+  dependencies:
+    avsc "^5.4.21"
+
 "@tvkitchen/base-constants@^1.0.1", "@tvkitchen/base-constants@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-constants/-/base-constants-1.2.0.tgz#020246bd1ff700e67066eea2e708dc5254cbcb9d"
@@ -1323,6 +1330,11 @@ atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+
+avsc@^5.4.21:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/avsc/-/avsc-5.6.1.tgz#aae0dbb386df61416881ee5c28eb346de0ec98e3"
+  integrity sha512-Ro3/+ElCgfTgz6ZoVpdLvCV4TrcjKYKHJjyMp5dzuTczTEEHNCKV2vvJ5EORa4ofkB+nU5/UVM6NBP/+bFLAiw==
 
 aws-sign2@~0.7.0:
   version "0.7.0"

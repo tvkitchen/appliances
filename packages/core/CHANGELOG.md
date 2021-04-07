@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.6.0] - 2020-04-07
+## [0.6.1] - 2020-04-07
 ### Added
 - `AbstractVideoIngestionAppliance` now generates payloads with timestamps, and accepts an `origin` setting on appliance construction.
+
+## 0.6.0 - 2020-04-07
+This package is identical to [0.6.1] but was deprecated due to a publication error.
 
 ### Changed
 - `AbstractAppliance` no longer errors if `invoke` returns a null value.

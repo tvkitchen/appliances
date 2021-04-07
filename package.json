@@ -5,7 +5,8 @@
   "author": "Bad Idea Factory <biffuddotcom@biffud.com>",
   "license": "LGPL-3.0",
   "scripts": {
-    "build": "yarn workspaces run babel --root-mode upward src -d lib",
+    "clean": "rm -fr packages/*/lib",
+    "build": "yarn clean && yarn workspaces run babel --root-mode upward src -d lib",
     "lint": "eslint .",
     "prepare": "yarn build",
     "prepublishOnly": "yarn test && yarn lint",

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Fixed the way default settings were specified for individual fields.
+- Update the required version of appliance-core to 0.6.1
 
 ## [0.3.0] - 2020-10-18
 ### Changed
@@ -31,5 +32,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.2.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-video-file-ingestion@0.2.0
 [0.1.1]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-video-file-ingestion@0.1.1
 [0.1.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-video-file-ingestion@0.1.0
-
-

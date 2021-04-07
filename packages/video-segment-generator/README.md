@@ -10,7 +10,7 @@ The Video Segment Generator Appliance will take a stream of payloads and identif
 ## Configuration Options
 The appliance takes in the following configuration values:
 
-- `period` (milliseconds): the number of milliseconds that the clock will track (e.g. 60000 would be a clock that can track up to one minute).  Default is `PERIOD.INFINITE`.
+- `interval` (milliseconds): the number of milliseconds that the clock will track (e.g. 60000 would be a clock that can track up to one minute).  Default is `INTERVALS.INFINITE`.
 
 - `origin` (timestamp): what time does the clock start (what is the first instance of "0" when identifying segments).  Default is `now()`
 

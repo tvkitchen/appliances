@@ -12,7 +12,7 @@ The appliance takes in the following configuration values:
 
 - `interval` (milliseconds): the number of milliseconds that the clock will track (e.g. 60000 would be a clock that can track up to one minute).  Default is `INTERVALS.INFINITE`.
 
-- `origin` (timestamp): what time does the clock start (what is the first instance of "0" when identifying segments).  Default is `now()`
+- `origin` (ISO String): what time does the clock start (what is the first instance of "0" when identifying segments).  Default is the ISO string value for the time of instantiation.
 
 - `segments`: array of objects and / or numbers specifying segment start times.  If the value is an object the `offset` attribute is used to convey the segment start offset.  Default is `[0]`.
 	- `offset` (milliseconds): the period offset that demarks the start of the segment.

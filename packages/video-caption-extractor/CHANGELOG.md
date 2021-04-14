@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - Update the required version of appliance-core to 0.6.1
+- Renamed the package from `@tvkitchen/appliance-ccextractor` to `@tvkitchen/appliance-video-caption-extractor`
 
 ## [0.3.1]
 ### Changed

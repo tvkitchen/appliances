@@ -10,7 +10,7 @@ import {
 	convertCcExtractorLineToPayloads,
 } from './utils/ccextractor'
 
-class CCExtractorAppliance extends AbstractAppliance {
+class VideoCaptionExtractorAppliance extends AbstractAppliance {
 	ccExtractorProcess = null
 
 	mostRecentLine = null
@@ -80,4 +80,4 @@ class CCExtractorAppliance extends AbstractAppliance {
 	}
 }
 
-export { CCExtractorAppliance }
+export { VideoCaptionExtractorAppliance }

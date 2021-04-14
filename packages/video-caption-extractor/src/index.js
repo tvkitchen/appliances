@@ -1,2 +1,2 @@
-export { CCExtractorAppliance } from './CCExtractorAppliance'
+export { VideoCaptionExtractorAppliance } from './VideoCaptionExtractorAppliance'
 export { CCExtractorLine } from './CCExtractorLine'

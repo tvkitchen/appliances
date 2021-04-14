@@ -1,4 +1,4 @@
-# TV Kitchen CCExtractor Appliance
+# TV Kitchen Video Caption Extractor Appliance
 
 ---
 inputTypes: STREAM.CONTAINER

@@ -82,6 +82,12 @@ describe('segment utils #unit', () => {
 			expect(getPeriodPosition(1000, 0, INTERVALS.INFINITE)).toBe(0)
 			expect(getPeriodPosition(1000, 500, INTERVALS.INFINITE)).toBe(500)
 		})
+		it('should return the starting position of a given period with a non-zero origin', () => {
+			expect(getPeriodPosition(1000, 60, 3000)).toBe(60)
+			expect(getPeriodPosition(4000, 60, 3000)).toBe(3060)
+			expect(getPeriodPosition(1000, -1000, 3000)).toBe(-1000)
+			expect(getPeriodPosition(4000, -1000, 3000)).toBe(2000)
+		})
 	})
 
 	describe('generatePositionRangeSegmentPayloads', () => {

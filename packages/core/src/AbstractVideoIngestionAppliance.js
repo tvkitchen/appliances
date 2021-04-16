@@ -82,6 +82,8 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 */
 	getFfmpegSettings = () => [
 		'-loglevel', 'quiet',
+		'-err_detect', 'aggressive',
+		'-fflags', 'discardcorrupt',
 		'-i', '-',
 		'-codec', 'copy',
 		'-f', 'mpegts',

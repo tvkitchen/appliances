@@ -22,9 +22,13 @@ class CaptionSrtGeneratorAppliance extends AbstractAppliance {
 			includeCounter: true,
 			...settings,
 		})
+		this.setOriginPosition(0)
 	}
 
-	static getInputTypes = () => [dataTypes.TEXT.ATOM]
+	static getInputTypes = () => [
+		dataTypes.TEXT.ATOM,
+		'SEGMENT.START',
+	]
 
 	static getOutputTypes = () => ['TEXT.SRT']
 
@@ -39,7 +43,9 @@ class CaptionSrtGeneratorAppliance extends AbstractAppliance {
 		const position = payloadArray.getPosition()
 		const duration = payloadArray.getDuration()
 		const counterLine = (this.settings.includeCounter ? `${this.counter}\n` : '')
-		const timestampLine = `${msToSrtTimestamp(position)} --> ${msToSrtTimestamp(position + duration)}\n`
+		const srtStartTimestamp = msToSrtTimestamp(position - this.getOriginPosition())
+		const srtEndTimestamp = msToSrtTimestamp(position - this.getOriginPosition() + duration)
+		const timestampLine = `${srtStartTimestamp} --> ${srtEndTimestamp}\n`
 		const captionLine = payloadArray.toArray().map((payload) => payload.data).join('')
 		return new Payload({
 			data: `${counterLine}${timestampLine}${captionLine}`,
@@ -48,6 +54,10 @@ class CaptionSrtGeneratorAppliance extends AbstractAppliance {
 			duration,
 		})
 	}
+
+	setOriginPosition(newOriginPosition) { this.originPosition = newOriginPosition }
+
+	getOriginPosition() { return this.originPosition }
 
 	resetCounter = () => { this.counter = 0 }
 
@@ -68,10 +78,20 @@ class CaptionSrtGeneratorAppliance extends AbstractAppliance {
 	invoke = async (payloadArray) => {
 		const unprocessedPayloadArray = new PayloadArray()
 		payloadArray.toArray().forEach((payload) => {
-			unprocessedPayloadArray.insert(payload)
-			if (payload.data.includes('\n')) {
-				this.push(this.generateSrtPayload(unprocessedPayloadArray))
-				unprocessedPayloadArray.empty()
+			switch (payload.type) {
+			case 'SEGMENT.START':
+				this.resetCounter()
+				this.setOriginPosition(payload.position)
+				break
+			case dataTypes.TEXT.ATOM:
+				unprocessedPayloadArray.insert(payload)
+				if (payload.data.includes('\n')) {
+					this.push(this.generateSrtPayload(unprocessedPayloadArray))
+					unprocessedPayloadArray.empty()
+				}
+				break
+			default:
+				break
 			}
 		})
 		return unprocessedPayloadArray

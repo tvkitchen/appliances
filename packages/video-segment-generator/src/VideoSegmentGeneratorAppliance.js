@@ -3,6 +3,7 @@ import { INTERVALS } from './constants'
 import {
 	calculateOriginPosition,
 	generatePositionRangeSegmentPayloads,
+	getPeriodPosition,
 } from './utils/segment'
 
 /**
@@ -47,7 +48,8 @@ class VideoSegmentGeneratorAppliance extends AbstractAppliance {
 		)
 		const endPosition = payloadArray.getPosition() + payloadArray.getDuration()
 		const startPosition = (this.latestSegmentPayload !== null)
-			? this.latestSegmentPayload.position + 1 : 0
+			? this.latestSegmentPayload.position + 1
+			: getPeriodPosition(0, originPosition, this.settings.interval)
 		const segmentPayloads = generatePositionRangeSegmentPayloads(
 			startPosition,
 			endPosition,

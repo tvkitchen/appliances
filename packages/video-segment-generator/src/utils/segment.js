@@ -52,7 +52,7 @@ export const generatePeriodSegmentPayloads = (periodPosition, segments) => segme
 export const getPeriodPosition = (position, originPosition, interval) => (
 	(interval === INTERVALS.INFINITE)
 		? originPosition
-		: Math.floor((position - originPosition) / interval) * interval
+		: Math.floor((position - originPosition) / interval) * interval + originPosition
 )
 
 /**

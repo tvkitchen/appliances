@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update the required version of appliance-core to 0.6.1
 - Update the referenced base dependencies.
 
+### Added
+- Support for responding to `SEGMENT.START` payloads.
+
 ## [0.1.0] - 2021-02-19
 ### Added
 - Initial implementation of the `CaptionSrtGenerator` appliance.

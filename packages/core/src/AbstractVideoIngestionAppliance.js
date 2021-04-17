@@ -81,15 +81,17 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 *
 	 * @return {String[]} A list of FFmpeg command line parameters
 	 */
-	getFfmpegSettings = () => [
-		'-loglevel', 'quiet',
-		'-err_detect', 'aggressive',
-		'-fflags', 'discardcorrupt',
-		'-i', '-',
-		'-codec', 'copy',
-		'-f', 'mpegts',
-		'-',
-	]
+	static getFfmpegSettings() {
+		return [
+			'-loglevel', 'quiet',
+			'-err_detect', 'aggressive',
+			'-fflags', 'discardcorrupt',
+			'-i', '-',
+			'-codec', 'copy',
+			'-f', 'mpegts',
+			'-',
+		]
+	}
 
 	/**
 	 * The ReadableStream that is being ingested by the ingestion engine.
@@ -98,7 +100,8 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 *
 	 * @return {ReadableStream} The stream of data to be ingested by the ingestion engine
 	 */
-	getInputStream = () => {
+	// eslint-disable-next-line class-methods-use-this
+	getInputStream() {
 		throw new NotImplementedError('getInputStream')
 	}
 
@@ -110,7 +113,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 *
 	 * @param  {Packet} packet The latest TSDemuxer Packet object
 	 */
-	onDemuxedPacket = (packet) => {
+	onDemuxedPacket(packet) {
 		this.mostRecentDemuxedPacket = packet
 	}
 
@@ -121,7 +124,9 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 *
 	 * @return {Packet} The most recent Packet object extracted by TSDemuxer
 	 */
-	getMostRecentDemuxedPacket = () => this.mostRecentDemuxedPacket
+	getMostRecentDemuxedPacket() {
+		return this.mostRecentDemuxedPacket
+	}
 
 	/**
 	 * Process a new chunk of data from an MPEG-TS stream. The chunks passed to this
@@ -135,7 +140,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 * @param  {Function(err,result)} done     A `(err, result) => ...` callback
 	 *
 	 */
-	processMpegtsStreamData = (mpegtsData, enc, done) => {
+	processMpegtsStreamData(mpegtsData, enc, done) {
 		this.mpegtsDemuxer.process(mpegtsData)
 		const demuxedPacket = this.getMostRecentDemuxedPacket() || generateEmptyPacket()
 		const position = tsToMilliseconds(demuxedPacket.pts)
@@ -151,10 +156,13 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/** @inheritdoc */
-	isValidPayload = async () => true
+	// eslint-disable-next-line class-methods-use-this
+	async isValidPayload() {
+		return true
+	}
 
 	/** @inheritdoc */
-	audit = async () => {
+	async audit() {
 		let passed = true
 		if (!commandExists.sync('ffmpeg')) {
 			passed = false
@@ -164,10 +172,10 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/** @inheritdoc */
-	start = async () => {
+	async start() {
 		this.ffmpegProcess = spawn(
 			'ffmpeg',
-			this.getFfmpegSettings(),
+			this.constructor.getFfmpegSettings(),
 			{ stdio: ['pipe', 'pipe', 'ignore'] },
 		)
 		this.activeInputStream = this.getInputStream()
@@ -184,7 +192,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/** @inheritdoc */
-	stop = async () => {
+	async stop() {
 		if (this.activeInputStream !== null) {
 			this.activeInputStream.destroy()
 		}
@@ -196,15 +204,20 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/** @inheritdoc */
-	invoke = async () => {
+	// eslint-disable-next-line class-methods-use-this
+	async invoke() {
 		throw new Error('Ingestion Appliances cannot be invoked.')
 	}
 
 	/** @inheritdoc */
-	static getInputTypes = () => []
+	static getInputTypes() {
+		return []
+	}
 
 	/** @inheritdoc */
-	static getOutputTypes = () => [dataTypes.STREAM.CONTAINER]
+	static getOutputTypes() {
+		return [dataTypes.STREAM.CONTAINER]
+	}
 }
 
 export { AbstractVideoIngestionAppliance }

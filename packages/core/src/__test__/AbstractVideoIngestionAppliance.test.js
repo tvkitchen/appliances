@@ -212,17 +212,16 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 		})
 	})
 
-	describe('getFfmpegSettings', () => {
-		it('should return an array', () => {
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			expect(ingestionAppliance.getFfmpegSettings()).toBeInstanceOf(Array)
-		})
-	})
-
 	describe('getInputStream', () => {
 		it('should throw an error when called without an implementation', () => {
 			const ingestionAppliance = new PartiallyImplementedVideoIngestionAppliance()
 			expect(ingestionAppliance.getInputStream).toThrow(NotImplementedError)
+		})
+	})
+
+	describe('getFfmpegSettings', () => {
+		it('should return an array', () => {
+			expect(AbstractVideoIngestionAppliance.getFfmpegSettings()).toBeInstanceOf(Array)
 		})
 	})
 

@@ -36,7 +36,7 @@ class AbstractAppliance extends IAppliance {
 	}
 
 	/** @inheritdoc */
-	isValidPayload = async (payload) => {
+	async isValidPayload(payload) {
 		assert(
 			this.constructor.getInputTypes().includes(payload.type),
 			`${payload.type} is not a valid Payload type for this appliance.`,
@@ -45,7 +45,7 @@ class AbstractAppliance extends IAppliance {
 	}
 
 	/** @inheritdoc */
-	ingestPayload = async (payload) => {
+	async ingestPayload(payload) {
 		assert(
 			Payload.isPayload(payload),
 			'You cannot ingest data that is not an instance of Payload.',

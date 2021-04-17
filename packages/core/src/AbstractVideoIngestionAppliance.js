@@ -48,7 +48,8 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	/**
 	* Create a AbstractVideoIngestionAppliance.
 	*
-	* @param  {String} settings.origin The ISO timestamp thaat marks the timestamp of position 0.
+	* @param  {String} settings.origin The ISO timestamp that marks the absoulte time associated
+	*                                  with position 0.
 	*/
 	constructor(settings = {}) {
 		super({
@@ -138,14 +139,13 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 		this.mpegtsDemuxer.process(mpegtsData)
 		const demuxedPacket = this.getMostRecentDemuxedPacket() || generateEmptyPacket()
 		const position = tsToMilliseconds(demuxedPacket.pts)
-		const timestampInMs = (new Date(this.settings.origin)).getTime() + position
 		const payload = new Payload({
 			data: mpegtsData,
 			type: dataTypes.STREAM.CONTAINER,
 			duration: 0,
 			position,
 			createdAt: (new Date()).toISOString(),
-			timestamp: (new Date(timestampInMs)).toISOString(),
+			origin: this.settings.origin,
 		})
 		done(null, payload)
 	}

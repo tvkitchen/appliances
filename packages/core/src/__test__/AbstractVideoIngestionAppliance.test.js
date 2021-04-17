@@ -108,7 +108,7 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 				expect(typeof result.createdAt).toBe('string')
 			})
 		})
-		it('should correctly decorate the Payload timestamp', () => {
+		it('should correctly decorate the Payload origin', () => {
 			jest.clearAllMocks()
 			const originTime = new Date()
 			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance({
@@ -122,9 +122,7 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			})
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
 			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
-				expect(result.timestamp).toEqual(
-					(new Date(originTime.getTime() + 1000)).toISOString(),
-				)
+				expect(result.origin).toEqual(originTime.toISOString())
 			})
 		})
 	})

@@ -11,10 +11,10 @@
   "main": "lib/index.js",
   "module": "src/index.js",
   "dependencies": {
-    "@tvkitchen/base-classes": "^1.4.0-alpha.2",
+    "@tvkitchen/base-classes": "^2.0.0-alpha.1",
     "@tvkitchen/base-constants": "^1.2.0",
     "@tvkitchen/base-errors": "^1.0.1",
-    "@tvkitchen/base-interfaces": "4.0.0-alpha.3",
+    "@tvkitchen/base-interfaces": "4.0.0-alpha.4",
     "command-exists": "^1.2.9",
     "ts-demuxer": "^1.0.0"
   },

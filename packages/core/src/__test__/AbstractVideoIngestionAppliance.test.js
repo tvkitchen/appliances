@@ -108,7 +108,7 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 				expect(typeof result.createdAt).toBe('string')
 			})
 		})
-		it('should correctly decorate the Payload timestamp', () => {
+		it('should correctly decorate the Payload origin', () => {
 			jest.clearAllMocks()
 			const originTime = new Date()
 			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance({
@@ -122,9 +122,7 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			})
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
 			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
-				expect(result.timestamp).toEqual(
-					(new Date(originTime.getTime() + 1000)).toISOString(),
-				)
+				expect(result.origin).toEqual(originTime.toISOString())
 			})
 		})
 	})
@@ -214,17 +212,16 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 		})
 	})
 
-	describe('getFfmpegSettings', () => {
-		it('should return an array', () => {
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			expect(ingestionAppliance.getFfmpegSettings()).toBeInstanceOf(Array)
-		})
-	})
-
 	describe('getInputStream', () => {
 		it('should throw an error when called without an implementation', () => {
 			const ingestionAppliance = new PartiallyImplementedVideoIngestionAppliance()
 			expect(ingestionAppliance.getInputStream).toThrow(NotImplementedError)
+		})
+	})
+
+	describe('getFfmpegSettings', () => {
+		it('should return an array', () => {
+			expect(AbstractVideoIngestionAppliance.getFfmpegSettings()).toBeInstanceOf(Array)
 		})
 	})
 

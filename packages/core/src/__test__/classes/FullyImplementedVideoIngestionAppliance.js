@@ -6,7 +6,9 @@ class FullyImplementedVideoIngestionAppliance extends AbstractVideoIngestionAppl
 		this.readableStream = settings.readableStream
 	}
 
-	getInputStream = () => this.readableStream
+	getInputStream() {
+		return this.readableStream
+	}
 }
 
 export { FullyImplementedVideoIngestionAppliance }

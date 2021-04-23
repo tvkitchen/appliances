@@ -1,3 +1,7 @@
+// Mocked imports
+import { Transform } from 'stream'
+
+// Test imports
 import { AssertionError } from 'assert'
 import { AbstractInstantiationError } from '@tvkitchen/base-errors'
 import {
@@ -39,6 +43,43 @@ describe('AbstractAppliance #unit', () => {
 			const payload = new Payload({ type: 'FOO' })
 			const appliance = new FullyImplementedAppliance()
 			expect(await appliance.isValidPayload(payload)).toBe(true)
+		})
+	})
+
+	describe('push', () => {
+		it('should decorate payloads that do not have an origin', async () => {
+			jest.clearAllMocks()
+			const pushSpy = jest.spyOn(Transform.prototype, 'push').mockImplementation()
+			const payload = new Payload({
+				origin: '2021-04-23T15:38:33.084Z',
+				type: 'FOO',
+			})
+			const appliance = new FullyImplementedAppliance()
+			appliance.invoke = () => {
+				appliance.push(new Payload())
+				return null
+			}
+			await appliance.ingestPayload(payload)
+			expect(pushSpy).toHaveBeenCalledTimes(1)
+			expect(pushSpy.mock.calls[0][0].origin).toEqual('2021-04-23T15:38:33.084Z')
+		})
+		it('should not decorate payloads that have an origin', async () => {
+			jest.clearAllMocks()
+			const pushSpy = jest.spyOn(Transform.prototype, 'push').mockImplementation()
+			const payload = new Payload({
+				origin: '2021-04-23T15:38:33.084Z',
+				type: 'FOO',
+			})
+			const appliance = new FullyImplementedAppliance()
+			appliance.invoke = () => {
+				appliance.push(new Payload({
+					origin: '2021-04-23T16:38:33.084Z',
+				}))
+				return null
+			}
+			await appliance.ingestPayload(payload)
+			expect(pushSpy).toHaveBeenCalledTimes(1)
+			expect(pushSpy.mock.calls[0][0].origin).toEqual('2021-04-23T16:38:33.084Z')
 		})
 	})
 

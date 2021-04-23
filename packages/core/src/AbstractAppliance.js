@@ -64,6 +64,17 @@ class AbstractAppliance extends IAppliance {
 		this.payloads = remainingPayloads
 		return werePayloadsProcessed
 	}
+
+	push(payload) {
+		const origin = (payload.origin === '')
+			? this.payloads.getOrigin()
+			: payload.origin
+
+		super.push(new Payload({
+			...payload,
+			origin,
+		}))
+	}
 }
 
 export { AbstractAppliance }

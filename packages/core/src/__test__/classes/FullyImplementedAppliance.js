@@ -9,7 +9,8 @@ class FullyImplementedAppliance extends AbstractAppliance {
 		return ['BAR']
 	}
 
-	invoke = async (payloads) => payloads
+	// eslint-disable-next-line class-methods-use-this
+	async invoke(payloads) { return payloads }
 }
 
 export { FullyImplementedAppliance }

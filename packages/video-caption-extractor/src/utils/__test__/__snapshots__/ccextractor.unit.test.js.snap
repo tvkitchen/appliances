@@ -5,8 +5,8 @@ Object {
   "createdAt": Any<String>,
   "data": "CLEANUP GUY AND IF YOU L",
   "duration": 834,
+  "origin": "",
   "position": 58892,
-  "timestamp": "",
   "type": "TEXT.ATOM",
 }
 `;
@@ -16,8 +16,8 @@ Object {
   "createdAt": Any<String>,
   "data": "OO",
   "duration": 33,
+  "origin": "",
   "position": 59726,
-  "timestamp": "",
   "type": "TEXT.ATOM",
 }
 `;
@@ -28,8 +28,8 @@ Object {
   "data": "
 ",
   "duration": 0,
+  "origin": "",
   "position": 59726,
-  "timestamp": "",
   "type": "TEXT.ATOM",
 }
 `;
@@ -39,8 +39,8 @@ Object {
   "createdAt": Any<String>,
   "data": "He was as fresh as is the month of May.",
   "duration": 33,
+  "origin": "",
   "position": 59726,
-  "timestamp": "",
   "type": "TEXT.ATOM",
 }
 `;

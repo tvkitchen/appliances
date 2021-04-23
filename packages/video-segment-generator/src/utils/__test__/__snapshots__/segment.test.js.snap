@@ -44,8 +44,8 @@ Object {
     "type": "Buffer",
   },
   "duration": 0,
+  "origin": "",
   "position": 0,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -55,8 +55,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 500,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -105,8 +105,8 @@ Object {
     "type": "Buffer",
   },
   "duration": 0,
+  "origin": "",
   "position": 0,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -156,8 +156,8 @@ Object {
     "type": "Buffer",
   },
   "duration": 0,
+  "origin": "",
   "position": 300000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -167,8 +167,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 0,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -178,8 +178,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 1,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -189,8 +189,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 2,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -200,8 +200,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 3,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -211,8 +211,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 2000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -222,8 +222,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 2000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -233,8 +233,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 3000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -244,8 +244,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 4000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -255,8 +255,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 0,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -266,8 +266,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 1000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -277,8 +277,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 2000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -288,8 +288,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 3000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -299,8 +299,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 4000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -310,8 +310,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 5000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;
@@ -321,8 +321,8 @@ Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
+  "origin": "",
   "position": 6000,
-  "timestamp": "",
   "type": "SEGMENT.START",
 }
 `;

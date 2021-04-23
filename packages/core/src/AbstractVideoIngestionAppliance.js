@@ -60,11 +60,11 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 			throw new AbstractInstantiationError(this.constructor.name)
 		}
 
-		this.mpegtsDemuxer = new TSDemuxer(this.onDemuxedPacket)
+		this.mpegtsDemuxer = new TSDemuxer(this.onDemuxedPacket.bind(this))
 
 		this.mpegtsProcessingStream = Transform({
 			objectMode: true,
-			transform: this.processMpegtsStreamData,
+			transform: this.processMpegtsStreamData.bind(this),
 		})
 
 		this.payloadIngestionStream = Writable({

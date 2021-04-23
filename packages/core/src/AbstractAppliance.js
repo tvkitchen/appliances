@@ -33,7 +33,12 @@ class AbstractAppliance extends IAppliance {
 			...settings,
 		}
 		this.logger = this.settings.logger
+		this.currentOrigin = ''
 	}
+
+	setCurrentOrigin(origin) { this.currentOrigin = origin }
+
+	getCurrentOrigin() { return this.currentOrigin }
 
 	/** @inheritdoc */
 	async isValidPayload(payload) {
@@ -55,6 +60,7 @@ class AbstractAppliance extends IAppliance {
 			'Payload does not satisfy appliance ingestion conditions.',
 		)
 		this.payloads.insert(payload)
+		this.setCurrentOrigin(payload.origin)
 		const remainingPayloads = (await this.invoke(this.payloads)) ?? new PayloadArray()
 		assert(
 			PayloadArray.isPayloadArray(remainingPayloads),
@@ -67,7 +73,7 @@ class AbstractAppliance extends IAppliance {
 
 	push(payload) {
 		const origin = (payload.origin === '')
-			? this.payloads.getOrigin()
+			? this.getCurrentOrigin()
 			: payload.origin
 
 		super.push(new Payload({

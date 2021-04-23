@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- `AbstractAppliance` will now populate the `origin` of outbound payloads.
 - Update `AbstractVideoIngestionAppliance` to filter corrupt payloads.
 
 ### Changed

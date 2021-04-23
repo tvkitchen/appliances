@@ -1,41 +1,38 @@
 import {
-	calculateOriginPosition,
-	generatePeriodSegmentPayloads,
-	generatePositionRangeSegmentPayloads,
+	calculateStartingPosition,
+	generateSegmentPayloadsFromPosition,
+	generateSegmentPayloadsForPositionRange,
 	getPeriodPosition,
 } from '../segment'
 
 import { INTERVALS } from '../../constants'
 
 describe('segment utils #unit', () => {
-	describe('calculateOriginPosition', () => {
-		it('should return the reference position when passed matching timestamps', () => {
-			expect(calculateOriginPosition(
+	describe('calculateStartingPosition', () => {
+		it('should return zero when passed matching timestamps', () => {
+			expect(calculateStartingPosition(
 				'2021-03-12T20:04:25.258Z',
 				'2021-03-12T20:04:25.258Z',
-				42,
-			)).toBe(42)
+			)).toBe(0)
 		})
-		it('should generate negative origin positions if origin is before position 0', () => {
-			expect(calculateOriginPosition(
+		it('should generate negative positions if startAt is before the reference origin', () => {
+			expect(calculateStartingPosition(
 				'2021-03-12T20:04:24.258Z',
 				'2021-03-12T20:04:25.258Z',
-				0,
 			)).toBe(-1000)
 		})
-		it('should generate positive origin positions if origin is after position 0', () => {
-			expect(calculateOriginPosition(
+		it('should generate positive positions if startAt is after the reference origin', () => {
+			expect(calculateStartingPosition(
 				'2021-03-12T20:04:26.258Z',
 				'2021-03-12T20:04:25.258Z',
-				0,
 			)).toBe(1000)
 		})
 	})
 
-	describe('generatePeriodSegmentPayloads', () => {
+	describe('generateSegmentPayloadsFromPosition', () => {
 		it('should generate payloads for simple segments', () => {
 			const segments = [0, 1, 2, 3]
-			const segmentPayloads = generatePeriodSegmentPayloads(0, segments)
+			const segmentPayloads = generateSegmentPayloadsFromPosition(0, segments)
 			segmentPayloads.forEach((segmentPayload) => expect(segmentPayload).toMatchSnapshot({
 				createdAt: expect.any(String),
 			}))
@@ -52,7 +49,7 @@ describe('segment utils #unit', () => {
 					programName: 'The Second Segment',
 				},
 			}]
-			const segmentPayloads = generatePeriodSegmentPayloads(0, segments)
+			const segmentPayloads = generateSegmentPayloadsFromPosition(0, segments)
 			expect(segmentPayloads.length).toBe(2)
 			segmentPayloads.forEach((segmentPayload) => expect(segmentPayload).toMatchSnapshot({
 				createdAt: expect.any(String),
@@ -65,7 +62,7 @@ describe('segment utils #unit', () => {
 					programName: 'The First Segment',
 				},
 			}, 500]
-			const segmentPayloads = generatePeriodSegmentPayloads(0, segments)
+			const segmentPayloads = generateSegmentPayloadsFromPosition(0, segments)
 			expect(segmentPayloads.length).toBe(2)
 			segmentPayloads.forEach((segmentPayload) => expect(segmentPayload).toMatchSnapshot({
 				createdAt: expect.any(String),
@@ -90,17 +87,17 @@ describe('segment utils #unit', () => {
 		})
 	})
 
-	describe('generatePositionRangeSegmentPayloads', () => {
+	describe('generateSegmentPayloadsForPositionRange', () => {
 		it('should generate multiple sets of segments for positions that span multiple intervals', () => {
-			const startPosition = 0
-			const endPosition = 6000
-			const originPosition = 0
+			const rangeStartPosition = 0
+			const rangeEndPosition = 6000
+			const startingPosition = 0
 			const interval = 3000
 			const segments = [0, 1000, 2000]
-			const segmentPayloads = generatePositionRangeSegmentPayloads(
-				startPosition,
-				endPosition,
-				originPosition,
+			const segmentPayloads = generateSegmentPayloadsForPositionRange(
+				rangeStartPosition,
+				rangeEndPosition,
+				startingPosition,
 				interval,
 				segments,
 			)
@@ -111,15 +108,15 @@ describe('segment utils #unit', () => {
 		})
 
 		it('should generate a subset of segments for positions overlap multiple intervals', () => {
-			const startPosition = 2000
-			const endPosition = 4000
-			const originPosition = 0
+			const rangeStartPosition = 2000
+			const rangeEndPosition = 4000
+			const startingPosition = 0
 			const interval = 3000
 			const segments = [0, 1000, 2000]
-			const segmentPayloads = generatePositionRangeSegmentPayloads(
-				startPosition,
-				endPosition,
-				originPosition,
+			const segmentPayloads = generateSegmentPayloadsForPositionRange(
+				rangeStartPosition,
+				rangeEndPosition,
+				startingPosition,
 				interval,
 				segments,
 			)
@@ -129,16 +126,16 @@ describe('segment utils #unit', () => {
 			}))
 		})
 
-		it('should generate a segments if there is an infinite interval', () => {
-			const startPosition = 2000
-			const endPosition = 4000
-			const originPosition = 0
+		it('should generate all segments if there is an infinite interval', () => {
+			const rangeStartPosition = 2000
+			const rangeEndPosition = 4000
+			const startingPosition = 0
 			const interval = INTERVALS.INFINITE
 			const segments = [0, 1000, 2000]
-			const segmentPayloads = generatePositionRangeSegmentPayloads(
-				startPosition,
-				endPosition,
-				originPosition,
+			const segmentPayloads = generateSegmentPayloadsForPositionRange(
+				rangeStartPosition,
+				rangeEndPosition,
+				startingPosition,
 				interval,
 				segments,
 			)

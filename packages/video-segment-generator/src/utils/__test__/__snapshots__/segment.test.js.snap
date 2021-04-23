@@ -1,6 +1,127 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`segment utils #unit generatePeriodSegmentPayloads should generate payloads for mixed segments 1`] = `
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate a subset of segments for positions overlap multiple intervals 1`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 2000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate a subset of segments for positions overlap multiple intervals 2`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 3000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate a subset of segments for positions overlap multiple intervals 3`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 4000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate all segments if there is an infinite interval 1`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 2000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate multiple sets of segments for positions that span multiple intervals 1`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 0,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate multiple sets of segments for positions that span multiple intervals 2`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 1000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate multiple sets of segments for positions that span multiple intervals 3`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 2000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate multiple sets of segments for positions that span multiple intervals 4`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 3000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate multiple sets of segments for positions that span multiple intervals 5`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 4000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate multiple sets of segments for positions that span multiple intervals 6`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 5000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsForPositionRange should generate multiple sets of segments for positions that span multiple intervals 7`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": null,
+  "duration": 0,
+  "origin": "",
+  "position": 6000,
+  "type": "SEGMENT.START",
+}
+`;
+
+exports[`segment utils #unit generateSegmentPayloadsFromPosition should generate payloads for mixed segments 1`] = `
 Object {
   "createdAt": Any<String>,
   "data": Object {
@@ -50,7 +171,7 @@ Object {
 }
 `;
 
-exports[`segment utils #unit generatePeriodSegmentPayloads should generate payloads for mixed segments 2`] = `
+exports[`segment utils #unit generateSegmentPayloadsFromPosition should generate payloads for mixed segments 2`] = `
 Object {
   "createdAt": Any<String>,
   "data": null,
@@ -61,7 +182,7 @@ Object {
 }
 `;
 
-exports[`segment utils #unit generatePeriodSegmentPayloads should generate payloads for object segments 1`] = `
+exports[`segment utils #unit generateSegmentPayloadsFromPosition should generate payloads for object segments 1`] = `
 Object {
   "createdAt": Any<String>,
   "data": Object {
@@ -111,7 +232,7 @@ Object {
 }
 `;
 
-exports[`segment utils #unit generatePeriodSegmentPayloads should generate payloads for object segments 2`] = `
+exports[`segment utils #unit generateSegmentPayloadsFromPosition should generate payloads for object segments 2`] = `
 Object {
   "createdAt": Any<String>,
   "data": Object {
@@ -162,7 +283,7 @@ Object {
 }
 `;
 
-exports[`segment utils #unit generatePeriodSegmentPayloads should generate payloads for simple segments 1`] = `
+exports[`segment utils #unit generateSegmentPayloadsFromPosition should generate payloads for simple segments 1`] = `
 Object {
   "createdAt": Any<String>,
   "data": null,
@@ -173,7 +294,7 @@ Object {
 }
 `;
 
-exports[`segment utils #unit generatePeriodSegmentPayloads should generate payloads for simple segments 2`] = `
+exports[`segment utils #unit generateSegmentPayloadsFromPosition should generate payloads for simple segments 2`] = `
 Object {
   "createdAt": Any<String>,
   "data": null,
@@ -184,7 +305,7 @@ Object {
 }
 `;
 
-exports[`segment utils #unit generatePeriodSegmentPayloads should generate payloads for simple segments 3`] = `
+exports[`segment utils #unit generateSegmentPayloadsFromPosition should generate payloads for simple segments 3`] = `
 Object {
   "createdAt": Any<String>,
   "data": null,
@@ -195,134 +316,13 @@ Object {
 }
 `;
 
-exports[`segment utils #unit generatePeriodSegmentPayloads should generate payloads for simple segments 4`] = `
+exports[`segment utils #unit generateSegmentPayloadsFromPosition should generate payloads for simple segments 4`] = `
 Object {
   "createdAt": Any<String>,
   "data": null,
   "duration": 0,
   "origin": "",
   "position": 3,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate a segments if there is an infinite interval 1`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 2000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate a subset of segments for positions overlap multiple intervals 1`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 2000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate a subset of segments for positions overlap multiple intervals 2`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 3000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate a subset of segments for positions overlap multiple intervals 3`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 4000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate multiple sets of segments for positions that span multiple intervals 1`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 0,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate multiple sets of segments for positions that span multiple intervals 2`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 1000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate multiple sets of segments for positions that span multiple intervals 3`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 2000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate multiple sets of segments for positions that span multiple intervals 4`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 3000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate multiple sets of segments for positions that span multiple intervals 5`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 4000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate multiple sets of segments for positions that span multiple intervals 6`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 5000,
-  "type": "SEGMENT.START",
-}
-`;
-
-exports[`segment utils #unit generatePositionRangeSegmentPayloads should generate multiple sets of segments for positions that span multiple intervals 7`] = `
-Object {
-  "createdAt": Any<String>,
-  "data": null,
-  "duration": 0,
-  "origin": "",
-  "position": 6000,
   "type": "SEGMENT.START",
 }
 `;

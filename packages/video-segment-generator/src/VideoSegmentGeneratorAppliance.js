@@ -1,8 +1,8 @@
 import { AbstractAppliance } from '@tvkitchen/appliance-core'
 import { INTERVALS } from './constants'
 import {
-	calculateOriginPosition,
-	generatePositionRangeSegmentPayloads,
+	calculateStartingPosition,
+	generateSegmentPayloadsForPositionRange,
 	getPeriodPosition,
 } from './utils/segment'
 
@@ -19,7 +19,7 @@ class VideoSegmentGeneratorAppliance extends AbstractAppliance {
 	constructor(settings) {
 		super({
 			interval: INTERVALS.INFINITE,
-			origin: (new Date()).toISOString(),
+			startingAt: (new Date()).toISOString(),
 			segments: [0],
 			...settings,
 		})
@@ -41,21 +41,24 @@ class VideoSegmentGeneratorAppliance extends AbstractAppliance {
 
 	/** @inheritdoc */
 	invoke = async (payloadArray) => {
-		const originPosition = calculateOriginPosition(
-			this.settings.origin,
-			payloadArray.getTimestamp(),
-			payloadArray.getPosition(),
+		const segmentorStartingPosition = calculateStartingPosition(
+			this.settings.startingAt,
+			payloadArray.getOrigin(),
 		)
-		const endPosition = payloadArray.getPosition() + payloadArray.getDuration()
-		const startPosition = (this.latestSegmentPayload !== null)
+		const {
+			interval,
+			segments,
+		} = this.settings
+		const rangeEndPosition = payloadArray.getPosition() + payloadArray.getDuration()
+		const rangeStartPosition = (this.latestSegmentPayload !== null)
 			? this.latestSegmentPayload.position + 1
-			: getPeriodPosition(0, originPosition, this.settings.interval)
-		const segmentPayloads = generatePositionRangeSegmentPayloads(
-			startPosition,
-			endPosition,
-			originPosition,
-			this.settings.interval,
-			this.settings.segments,
+			: getPeriodPosition(0, segmentorStartingPosition, interval)
+		const segmentPayloads = generateSegmentPayloadsForPositionRange(
+			rangeStartPosition,
+			rangeEndPosition,
+			segmentorStartingPosition,
+			interval,
+			segments,
 		)
 		segmentPayloads.forEach((segmentPayload) => this.push(segmentPayload))
 		if (segmentPayloads.length > 0) {

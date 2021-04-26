@@ -50,15 +50,19 @@ class VideoCaptionExtractorAppliance extends AbstractAppliance {
 
 	/** @inheritdoc */
 	start = async () => {
-		this.ccExtractorProcess = spawn('ccextractor', [
-			'-stdout',
-			'--stream',
-			'-out=txt',
-			'-dru', // output characters as they arrive
-			'-ru1', // only render the current line
-			'-customtxt', '1100100', // start time, end time, use relative timestamp
-			'-',
-		])
+		this.ccExtractorProcess = spawn(
+			'ccextractor',
+			[
+				'-stdout',
+				'--stream',
+				'-out=txt',
+				'-dru', // output characters as they arrive
+				'-ru1', // only render the current line
+				'-customtxt', '1100100', // start time, end time, use relative timestamp
+				'-',
+			],
+			{ stdio: ['pipe', 'pipe', 'ignore'] },
+		)
 		this.ccExtractorProcess.stdout.on('data', this.handleCcExtractorData)
 	}
 

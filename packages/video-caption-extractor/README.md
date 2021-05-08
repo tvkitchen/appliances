@@ -1,9 +1,9 @@
 # TV Kitchen Video Caption Extractor Appliance
 
----
+```
 inputTypes: STREAM.CONTAINER
 outputTypes: TEXT.ATOM
----
+```
 
 The Caption appliance consumes `STREAM.CONTAINER` payloads and produces `TEXT.ATOM` payloads which reflect the closed captions of the stream.
 

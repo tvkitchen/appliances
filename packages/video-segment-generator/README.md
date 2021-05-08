@@ -1,9 +1,9 @@
 # TV Kitchen Video Segment Generator Appliance
 
----
+```
 inputTypes: STREAM.CONTAINER
 outputTypes: SEGMENT.START
----
+```
 
 The Video Segment Generator Appliance will take a stream of payloads and identify new segment starts according to the timestamp of those payloads.
 

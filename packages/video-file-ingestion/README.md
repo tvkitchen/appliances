@@ -1,9 +1,9 @@
 # TV Kitchen Video File Ingestion Appliance
 
----
+```
 inputTypes: none
 outputTypes: STREAM.CONTAINER
----
+```
 
 The Video File Ingestion appliance is configured to ingest a video file and conver it into `STREAM.CONTAINER` payloads.
 

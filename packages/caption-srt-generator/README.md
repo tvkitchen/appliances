@@ -1,9 +1,9 @@
 # TV Kitchen Caption SRT Generator Appliance
 
----
+```
 inputTypes: TEXT.ATOM
 outputTypes: TEXT.SRT
----
+```
 
 The Caption SRT Generator appliance ingests a stream of captions and converts them into the [SubRip file format](https://en.wikipedia.org/wiki/SubRip).
 

@@ -80,8 +80,12 @@ export const parseCcExtractorLines = (str) => str
 export const convertCcExtractorLineToPayloads = (line, previousLine = null) => {
 	const newCharacters = getDiff(line.text, previousLine ? previousLine.text : '')
 	const isNewLine = (newCharacters === line.text)
-	const start = previousLine ? previousLine.end : line.start
-	const { end } = line
+	const start = (previousLine && previousLine.end !== 0)
+		? previousLine.end
+		: line.start
+	const end = line.end !== 0
+		? line.end
+		: Math.max(previousLine.end, line.start)
 	const payloads = []
 	if (isNewLine && previousLine !== null) {
 		payloads.push(new Payload({

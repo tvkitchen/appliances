@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Update `@tvkitchen/base-classes` to version `2.0.0-alpha.1`.
 
+### Fixed
+- No longer emits strange payloads when CCExtractor provides `00:00:00` timestamps.
+
 ## [0.4.0] - 2021-04-21
 - Update the required version of appliance-core to 0.6.1
 - Renamed the package from `@tvkitchen/appliance-ccextractor` to `@tvkitchen/appliance-video-caption-extractor`

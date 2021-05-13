@@ -16,7 +16,7 @@
     "@tvkitchen/base-errors": "^1.0.1",
     "@tvkitchen/base-interfaces": "4.0.0-alpha.4",
     "command-exists": "^1.2.9",
-    "ts-demuxer": "^1.0.0"
+    "mpegts-demuxer": "0.1.0"
   },
   "publishConfig": {
     "access": "public"

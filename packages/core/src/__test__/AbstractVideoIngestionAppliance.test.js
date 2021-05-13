@@ -49,13 +49,13 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 		it('should pass the data to the mpegts demuxer', () => {
 			jest.clearAllMocks()
 			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.mpegtsDemuxer = {
-				process: jest.fn(),
+			ingestionAppliance.mpegTsDemuxer = {
+				write: jest.fn(),
 			}
 			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({ pts: 0 })
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
 			ingestionAppliance.processMpegtsStreamData(streamData, null, () => {
-				expect(ingestionAppliance.mpegtsDemuxer.process).toHaveBeenCalledTimes(1)
+				expect(ingestionAppliance.mpegTsDemuxer.write).toHaveBeenCalledTimes(1)
 			})
 		})
 		it('should emit a Payload of type STREAM.CONTAINER', () => {

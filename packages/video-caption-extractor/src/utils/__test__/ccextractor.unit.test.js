@@ -118,5 +118,33 @@ lol this is not valid`))
 				})
 			})
 		})
+		it('should use previous timestamp end as end if new end is zero', () => {
+			const previousLine = new CCExtractorLine({
+				start: 58892,
+				end: 59726,
+				text: 'Singing he was, or fluting all the day;',
+			})
+			const newLine = new CCExtractorLine({
+				start: 0,
+				end: 0,
+				text: 'He was as fresh as is the month of May.',
+			})
+			const payloads = convertCcExtractorLineToPayloads(newLine, previousLine)
+			expect(payloads[1].position).toBe(59726)
+		})
+		it('should use the current start if previous end is zero', () => {
+			const previousLine = new CCExtractorLine({
+				start: 58890,
+				end: 0,
+				text: 'Singing he was, or fluting all the day;',
+			})
+			const newLine = new CCExtractorLine({
+				start: 58892,
+				end: 58896,
+				text: 'He was as fresh as is the month of May.',
+			})
+			const payloads = convertCcExtractorLineToPayloads(newLine, previousLine)
+			expect(payloads[1].position).toBe(58892)
+		})
 	})
 })

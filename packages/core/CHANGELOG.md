@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update `@tvkitchen/base-interfaces` to version `4.0.0-alpha.4`.
 - Update `AbstractVideoIngestionAppliance` to populate Payload `origin` instead of `timestamp`.
 - Remove arrow function method definitions from `AbstractVideoIngestionAppliance` and `AbstractAppliance`.
+- Use `mpegts-demuxer` instead of `ts-demuxer` for processing video.
 
 ## [0.6.1] - 2020-04-07
 ### Added

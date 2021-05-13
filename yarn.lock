@@ -3642,6 +3642,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
+mpegts-demuxer@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/mpegts-demuxer/-/mpegts-demuxer-0.1.0.tgz#8bd256b7f2947952090bda6a818cd648da17a241"
+  integrity sha512-Hm2oFakIBd/9pOE2PDQCISVAPIczHCQAACxVFWMyghz02iLatRzJyHho7RyR9sSqHIyMrEniksETAmEo9l5Hpw==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -4952,11 +4957,6 @@ tr46@^1.0.1:
   integrity sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
   dependencies:
     punycode "^2.1.0"
-
-ts-demuxer@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ts-demuxer/-/ts-demuxer-1.0.0.tgz#b0b873e7951a5a272e671acb82f622256d9eb891"
-  integrity sha512-76K1Tyb82CbawAUJ6Qz76TykS3SdgEWpJtE3GkUdBvOgdc/mkxns/1dDsViUNpmWZkBDWGBtnJl4EsYULc7Ruw==
 
 tslib@^1.9.0:
   version "1.11.1"

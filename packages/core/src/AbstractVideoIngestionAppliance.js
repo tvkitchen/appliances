@@ -11,7 +11,7 @@ import {
 	AbstractInstantiationError,
 	NotImplementedError,
 } from '@tvkitchen/base-errors'
-import { TSDemuxer } from 'ts-demuxer'
+import { MpegTsDemuxer } from 'mpegts-demuxer'
 import { AbstractAppliance } from './AbstractAppliance'
 import {
 	tsToMilliseconds,
@@ -34,7 +34,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	activeInputStream = null
 
 	// Utility for processing the MPEG-TS stream produced by ffmpeg
-	mpegtsDemuxer = null
+	mpegTsDemuxer = null
 
 	// A shim variable that allows us to use the output of TSDemuxer in our engine
 	mostRecentDemuxedPacket = null
@@ -60,7 +60,11 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 			throw new AbstractInstantiationError(this.constructor.name)
 		}
 
-		this.mpegtsDemuxer = new TSDemuxer(this.onDemuxedPacket.bind(this))
+		this.mpegTsDemuxer = new MpegTsDemuxer()
+		this.mpegTsDemuxer.on(
+			'data',
+			this.onDemuxedPacket.bind(this),
+		)
 
 		this.mpegtsProcessingStream = Transform({
 			objectMode: true,
@@ -141,7 +145,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 *
 	 */
 	processMpegtsStreamData(mpegtsData, enc, done) {
-		this.mpegtsDemuxer.process(mpegtsData)
+		this.mpegTsDemuxer.write(mpegtsData)
 		const demuxedPacket = this.getMostRecentDemuxedPacket() || generateEmptyPacket()
 		const position = tsToMilliseconds(demuxedPacket.pts)
 		const payload = new Payload({

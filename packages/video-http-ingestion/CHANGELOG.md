@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.1] - 2021-04-21
 ### Changed
 - Fixed the way default settings were specified for individual fields.
-- Update the required version of appliance-core to 0.6.1
+- Update `@tvkitchen/appliance-core` to version `0.7.0`.
 
 ## [0.3.0] - 2020-10-18
 ### Changed

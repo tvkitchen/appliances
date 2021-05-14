@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Update `@tvkitchen/base-classes` to version `2.0.0-alpha.1`.
-- Update the required version of appliance-core to 0.6.1
+- Update `@tvkitchen/appliance-core` to version `0.7.0`.
 - Update the referenced base dependencies.
 
 ### Added

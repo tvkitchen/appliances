@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update `@tvkitchen/base-classes` to version `2.0.0-alpha.1`.
 - Update to support `origin` payloads instead of `timestamp`.
 - Change `origin` appliance parameter to `startingAt`.
+- Update `@tvkitchen/appliance-core` to version `0.7.0`.
 
 ### Fixed
 - Fixed a bug where non-zero originPositions would result in incorrect periodPositions.

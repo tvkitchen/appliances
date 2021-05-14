@@ -1,12 +1,25 @@
 {
   "name": "@tvkitchen/appliance-video-caption-extractor",
   "description": "Extracts captions from MPEG-TS Payloads.",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tvkitchen/appliances.git",
     "directory": "packages/video-caption-extractor"
   },
+  "keywords": [
+    "mpeg",
+    "mpeg-ts",
+    "cc",
+    "closed captions",
+    "CCExtractor",
+    "HD HomeRun",
+    "tv",
+    "srt",
+    "transcript",
+    "text",
+    "tvkitchen"
+  ],
   "license": "LGPL-3.0",
   "main": "lib/index.js",
   "module": "src/index.js",

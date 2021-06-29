@@ -117,7 +117,7 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			ingestionAppliance.mpegtsDemuxer = {
 				process: jest.fn(),
 			}
-			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({
+			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValue({
 				pts: 90000,
 			})
 			const streamData = Buffer.from('testDataXYZ', 'utf8')

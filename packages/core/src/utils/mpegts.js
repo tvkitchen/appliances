@@ -1,3 +1,6 @@
+// MPEG-TS positions are stored as 1/90000'th of a second
+const DEFAULT_BASETIME = 1 / 90000
+
 /**
  * Converts a pts or dts extracted from an MPEG-TS packet to seconds.
  *
@@ -5,7 +8,10 @@
  * @param  {Number} baseTime The MPEG-TS basetime associated with the ts.
  * @return {Number}          The number of seconds represented by the pts or dts.
  */
-export const tsToMilliseconds = (ts, baseTime = 90000) => +((ts / baseTime) * 1000).toFixed(0)
+export function tsToMilliseconds(ts, baseTime = DEFAULT_BASETIME) {
+	const baseTimeMs = baseTime * 1000
+	return +(ts * baseTimeMs).toFixed(0)
+}
 
 /**
  * Exports a TSDemuxer MPEG-TS Packet as defined in the TSDemuxer project.

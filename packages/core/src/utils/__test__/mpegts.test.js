@@ -9,7 +9,7 @@ describe('mpegts utilities', () => {
 			expect(tsToMilliseconds(90000)).toBe(1000)
 		})
 		it('should convert successfuly with an override basetime', () => {
-			expect(tsToMilliseconds(500, 200)).toBe(2500)
+			expect(tsToMilliseconds(500, 1 / 200)).toBe(2500)
 		})
 	})
 

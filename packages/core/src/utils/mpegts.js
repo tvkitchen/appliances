@@ -1,3 +1,6 @@
+// MPEG-TS stores PTS in 33 bits, so positions rollover back to zero after a time.
+const MAX_PTS = 2 ** 33
+
 // MPEG-TS positions are stored as 1/90000'th of a second
 const DEFAULT_BASETIME = 1 / 90000
 
@@ -30,3 +33,29 @@ export const generateEmptyPacket = () => ({
 	content_type: 0,
 	frame_num: 0,
 })
+
+/**
+ * Determines if a pair of timestamps are discontinuous.
+ *
+ * Two timestamps are discontinuous if the new timestamp is before the
+ * old timestamp (if the pair is not monotonically increasing).
+ *
+ * @return {Boolean}
+ */
+export function areDiscontinuousPositions(firstPosition, secondPosition) {
+	return firstPosition > secondPosition
+}
+
+/**
+ * Calculates a timestamp that is offset by a number of PTS rollovers.
+ *
+ * @param  {string} timestamp     The ISO string of the timestamp being offset.
+ * @param  {number} rolloverCount The number of PTS rollovers to add to the timestamp.
+ * @return {string}               The ISO string of the resulting timestamp.
+ */
+export function getRolloverTimestamp(timestamp, rolloverCount = 1, baseTime = DEFAULT_BASETIME) {
+	const baseTimeMs = baseTime * 1000
+	const rolloverMs = rolloverCount * MAX_PTS * baseTimeMs
+	const updatedMs = (new Date(timestamp)).getTime() + rolloverMs
+	return (new Date(updatedMs)).toISOString()
+}

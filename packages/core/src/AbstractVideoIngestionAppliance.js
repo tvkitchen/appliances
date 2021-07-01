@@ -16,6 +16,8 @@ import { AbstractAppliance } from './AbstractAppliance'
 import {
 	tsToMilliseconds,
 	generateEmptyPacket,
+	areDiscontinuousPositions,
+	getRolloverTimestamp,
 } from './utils/mpegts'
 
 /**
@@ -45,6 +47,16 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	// A Writeable stream that will ingest Payloads into the TV Kitchen pipeline.
 	payloadIngestionStream = null
 
+	// The number of times the TS stream has rolled over it's timestamps
+	// This happens once every 2^33 / 90000 MS
+	rolloverCount = 0
+
+	// A tracker for the most recent position emitted by the MPEG-TS demuxer
+	latestPosition = 0
+
+	// A tracker for the most recent MPEG-TS origin point, accounting for rollovers
+	rolloverOrigin = ''
+
 	/**
 	* Create a AbstractVideoIngestionAppliance.
 	*
@@ -60,6 +72,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 			throw new AbstractInstantiationError(this.constructor.name)
 		}
 
+		this.rolloverOrigin = this.settings.origin
 		this.mpegTsDemuxer = new MpegTsDemuxer()
 		this.mpegTsDemuxer.on(
 			'data',
@@ -147,14 +160,24 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	processMpegtsStreamData(mpegtsData, enc, done) {
 		this.mpegTsDemuxer.write(mpegtsData)
 		const demuxedPacket = this.getMostRecentDemuxedPacket() || generateEmptyPacket()
-		const position = tsToMilliseconds(demuxedPacket.pts)
+		const newPosition = tsToMilliseconds(demuxedPacket.pts)
+
+		if (areDiscontinuousPositions(this.latestPosition, newPosition)) {
+			this.rolloverCount += 1
+			this.rolloverOrigin = getRolloverTimestamp(
+				this.settings.origin,
+				this.rolloverCount,
+			)
+		}
+		this.latestPosition = newPosition
+
 		const payload = new Payload({
 			data: mpegtsData,
 			type: dataTypes.STREAM.CONTAINER,
 			duration: 0,
-			position,
+			position: this.latestPosition,
 			createdAt: (new Date()).toISOString(),
-			origin: this.settings.origin,
+			origin: this.rolloverOrigin,
 		})
 		done(null, payload)
 	}

@@ -86,12 +86,12 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			ingestionAppliance.mpegtsDemuxer = {
 				process: jest.fn(),
 			}
-			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({
-				pts: 90000,
-			})
+			const testData = loadTestData(__dirname, 'processMpegtsStreamData.json')
+			const videoPacket = testData[0]
+			ingestionAppliance.onDemuxedPacket(videoPacket)
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
 			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
-				expect(result.position).toEqual(1000)
+				expect(result.position).toEqual(13946)
 			})
 		})
 		it('should correctly decorate the Payload createdAt', () => {
@@ -100,9 +100,9 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			ingestionAppliance.mpegtsDemuxer = {
 				process: jest.fn(),
 			}
-			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({
-				pts: 90000,
-			})
+			const testData = loadTestData(__dirname, 'processMpegtsStreamData.json')
+			const videoPacket = testData[0]
+			ingestionAppliance.onDemuxedPacket(videoPacket)
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
 			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
 				expect(typeof result.createdAt).toBe('string')
@@ -130,26 +130,30 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 	describe('onDemuxedPacket', () => {
 		it('should register new packets as most recent', () => {
 			const testData = loadTestData(__dirname, 'onDemuxedPacket.json')
-			const demuxedPacket = testData[0]
-			const demuxedPacket2 = testData[1]
+			const videoPacket1 = testData[0]
+			const videoPacket2 = testData[1]
+			const audioPacket1 = testData[1]
 			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.onDemuxedPacket(demuxedPacket)
-			ingestionAppliance.onDemuxedPacket(demuxedPacket2)
-			expect(ingestionAppliance.mostRecentDemuxedPacket).toEqual(demuxedPacket2)
+			ingestionAppliance.onDemuxedPacket(videoPacket1)
+			expect(ingestionAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket1)
+			ingestionAppliance.onDemuxedPacket(videoPacket2)
+			expect(ingestionAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket2)
+			ingestionAppliance.onDemuxedPacket(audioPacket1)
+			expect(ingestionAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket2)
 		})
 	})
 
-	describe('getMostRecentDemuxedPacket', () => {
+	describe('getMostRecentDemuxedVideoPacket', () => {
 		it('should return the value in most recent demuxed packet', () => {
 			const testData = loadTestData(__dirname, 'getMostRecentDemuxedPacket.json')
-			const demuxedPacket = testData[0]
+			const videoPacket = testData[0]
 			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.mostRecentDemuxedPacket = demuxedPacket
-			expect(ingestionAppliance.getMostRecentDemuxedPacket()).toEqual(demuxedPacket)
+			ingestionAppliance.onDemuxedPacket(videoPacket)
+			expect(ingestionAppliance.getMostRecentDemuxedVideoPacket()).toEqual(videoPacket)
 		})
 		it('should return null if nothing has been processed', () => {
 			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			expect(ingestionAppliance.getMostRecentDemuxedPacket()).toBe(null)
+			expect(ingestionAppliance.getMostRecentDemuxedVideoPacket()).toBe(null)
 		})
 	})
 

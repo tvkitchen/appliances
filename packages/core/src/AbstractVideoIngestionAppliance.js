@@ -20,6 +20,10 @@ import {
 	getRolloverTimestamp,
 } from './utils/mpegts'
 
+// This is defined in the demuxer we're using, but it is
+// not exported so we have to re-define it here.
+const MPEGTS_CONTENT_TYPE_VIDEO = 2
+
 /**
  * An AbstractVideoIngestionAppliance provides generic functionality for converting an arbitrary
  * video input stream into VIDEO.CONTAINER payloads.
@@ -39,7 +43,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	mpegTsDemuxer = null
 
 	// A shim variable that allows us to use the output of TSDemuxer in our engine
-	mostRecentDemuxedPacket = null
+	mostRecentDemuxedVideoPacket = null
 
 	// A Transformation stream that will convert MPEG-TS data into TV Kitchen Payloads
 	mpegtsProcessingStream = null
@@ -123,15 +127,17 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/**
-	 * Updates ingestion state based on the latest demuxed packet data.
+	 * Updates ingestion state based on the latest demuxed video packet data.
 	 *
 	 * This method is called by our MPEG-TS demuxer, and allows the ingestion engine to track
-	 * the most recent demuxed packet.
+	 * the most recent demuxed video packet.
 	 *
 	 * @param  {Packet} packet The latest TSDemuxer Packet object
 	 */
 	onDemuxedPacket(packet) {
-		this.mostRecentDemuxedPacket = packet
+		if (packet.content_type === MPEGTS_CONTENT_TYPE_VIDEO) {
+			this.mostRecentDemuxedVideoPacket = packet
+		}
 	}
 
 	/**
@@ -141,8 +147,8 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 *
 	 * @return {Packet} The most recent Packet object extracted by TSDemuxer
 	 */
-	getMostRecentDemuxedPacket() {
-		return this.mostRecentDemuxedPacket
+	getMostRecentDemuxedVideoPacket() {
+		return this.mostRecentDemuxedVideoPacket
 	}
 
 	/**
@@ -159,8 +165,8 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	 */
 	processMpegtsStreamData(mpegtsData, enc, done) {
 		this.mpegTsDemuxer.write(mpegtsData)
-		const demuxedPacket = this.getMostRecentDemuxedPacket() || generateEmptyPacket()
-		const newPosition = tsToMilliseconds(demuxedPacket.pts)
+		const demuxedVideoPacket = this.getMostRecentDemuxedVideoPacket() || generateEmptyPacket()
+		const newPosition = tsToMilliseconds(demuxedVideoPacket.pts)
 
 		if (areDiscontinuousPositions(this.latestPosition, newPosition)) {
 			this.rolloverCount += 1

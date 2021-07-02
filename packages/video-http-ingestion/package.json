@@ -24,7 +24,7 @@
   "main": "lib/index.js",
   "module": "src/index.js",
   "dependencies": {
-    "@tvkitchen/appliance-core": "0.7.0",
+    "@tvkitchen/appliance-core": "0.7.1",
     "node-fetch": "^2.6.1"
   },
   "publishConfig": {

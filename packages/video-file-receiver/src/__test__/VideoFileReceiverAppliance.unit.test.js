@@ -1,21 +1,21 @@
 import path from 'path'
 import { ReadStream } from 'fs'
-import { VideoFileIngestionAppliance } from '../VideoFileIngestionAppliance'
+import { VideoFileReceiverAppliance } from '../VideoFileReceiverAppliance'
 
-describe('VideoFileIngestionAppliance #unit', () => {
+describe('VideoFileReceiverAppliance #unit', () => {
 	describe('constructor', () => {
 		it('should throw an error when called without a path', () => {
-			expect(() => new VideoFileIngestionAppliance())
+			expect(() => new VideoFileReceiverAppliance())
 				.toThrow(Error)
 		})
 	})
 
 	describe('getInputStream', () => {
 		it('it should return a file read stream', () => {
-			const ingestionAppliance = new VideoFileIngestionAppliance({
+			const receiverAppliance = new VideoFileReceiverAppliance({
 				filePath: path.join(__dirname, '/data/empty.txt'),
 			})
-			const inputStream = ingestionAppliance.getInputStream()
+			const inputStream = receiverAppliance.getInputStream()
 			expect(inputStream).toBeInstanceOf(ReadStream)
 		})
 	})

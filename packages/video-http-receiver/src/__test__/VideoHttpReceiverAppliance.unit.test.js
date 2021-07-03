@@ -1,10 +1,10 @@
 import nock from 'nock'
-import { VideoHttpIngestionAppliance } from '../VideoHttpIngestionAppliance'
+import { VideoHttpReceiverAppliance } from '../VideoHttpReceiverAppliance'
 
-describe('VideoHttpIngestionAppliance #unit', () => {
+describe('VideoHttpReceiverAppliance #unit', () => {
 	describe('constructor', () => {
 		it('should throw an error when called without a URL', () => {
-			expect(() => new VideoHttpIngestionAppliance())
+			expect(() => new VideoHttpReceiverAppliance())
 				.toThrow(Error)
 		})
 	})
@@ -17,11 +17,11 @@ describe('VideoHttpIngestionAppliance #unit', () => {
 
 			nock(base).get(file).reply(200, body)
 
-			const ingestionAppliance = new VideoHttpIngestionAppliance({
+			const receiverAppliance = new VideoHttpReceiverAppliance({
 				url: `${base}${file}`,
 			})
 
-			const inputStream = ingestionAppliance.getInputStream()
+			const inputStream = receiverAppliance.getInputStream()
 
 			return expect(
 				new Promise((resolve) => inputStream.on('data', resolve)),
@@ -37,11 +37,11 @@ describe('VideoHttpIngestionAppliance #unit', () => {
 				message,
 			})
 
-			const ingestionAppliance = new VideoHttpIngestionAppliance({
+			const receiverAppliance = new VideoHttpReceiverAppliance({
 				url: `${base}${file}`,
 			})
 
-			const inputStream = ingestionAppliance.getInputStream()
+			const inputStream = receiverAppliance.getInputStream()
 
 			return expect(
 				new Promise((resolve, reject) => inputStream.on('error', reject)),

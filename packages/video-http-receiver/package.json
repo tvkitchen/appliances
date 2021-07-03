@@ -1,11 +1,11 @@
 {
-  "name": "@tvkitchen/appliance-video-http-ingestion",
+  "name": "@tvkitchen/appliance-video-http-receiver",
   "description": "Converts a video url into MPEG-TS Payloads.",
   "version": "0.3.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/tvkitchen/appliances.git",
-    "directory": "packages/video-http-ingestion"
+    "directory": "packages/video-http-receiver"
   },
   "keywords": [
     "mpeg",

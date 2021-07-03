@@ -1,11 +1,11 @@
 {
-  "name": "@tvkitchen/appliance-video-file-ingestion",
+  "name": "@tvkitchen/appliance-video-file-receiver",
   "description": "Converts a video file into MPEG-TS Payloads.",
   "version": "0.3.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/tvkitchen/appliances.git",
-    "directory": "packages/video-file-ingestion"
+    "directory": "packages/video-file-receiver"
   },
   "keywords": [
     "mpeg",

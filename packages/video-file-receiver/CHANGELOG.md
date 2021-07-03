@@ -1,4 +1,4 @@
-# Changelog for @tvkitchen/appliance-video-file-ingestion
+# Changelog for @tvkitchen/appliance-video-file-receiver
 
 All notable changes to this project will be documented in this file.
 
@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Rename package to `@tvkitchen/appliance-video-file-receiver`.
+- Rename exported class to `VideoFileReceiverAppliance`.
 - Extend the newly named `AbstractVideoReceiverAppliance`.
 - Update `@tvkitchen/appliance-core` to version `0.7.1`.
 

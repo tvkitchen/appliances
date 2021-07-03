@@ -1,6 +1,6 @@
 import { PassThrough } from 'stream'
 import fetch from 'node-fetch'
-import { AbstractVideoIngestionAppliance } from '@tvkitchen/appliance-core'
+import { AbstractVideoReceiverAppliance } from '@tvkitchen/appliance-core'
 
 /**
  * The VideoHttpIngestionAppliance handles processing a HTTP video stream. It is a concrete
@@ -9,7 +9,7 @@ import { AbstractVideoIngestionAppliance } from '@tvkitchen/appliance-core'
  *
  * @extends AbstractVideoIngestionAppliance
  */
-class VideoHttpIngestionAppliance extends AbstractVideoIngestionAppliance {
+class VideoHttpIngestionAppliance extends AbstractVideoReceiverAppliance {
 	/**
 	 * Create a VideoHttpIngestionEngine.
 	 *

@@ -1,7 +1,7 @@
 import fs from 'fs'
-import { AbstractVideoIngestionAppliance } from '@tvkitchen/appliance-core'
+import { AbstractVideoReceiverAppliance } from '@tvkitchen/appliance-core'
 
-class VideoFileIngestionAppliance extends AbstractVideoIngestionAppliance {
+class VideoFileIngestionAppliance extends AbstractVideoReceiverAppliance {
 	/**
 	* Create a VideoFileIngestionEngine.
 	*

@@ -1,2 +1,2 @@
 export { AbstractAppliance } from './AbstractAppliance'
-export { AbstractVideoIngestionAppliance } from './AbstractVideoIngestionAppliance'
+export { AbstractVideoReceiverAppliance } from './AbstractVideoReceiverAppliance'

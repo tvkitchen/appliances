@@ -25,18 +25,18 @@ import {
 const MPEGTS_CONTENT_TYPE_VIDEO = 2
 
 /**
- * An AbstractVideoIngestionAppliance provides generic functionality for converting an arbitrary
+ * An AbstractVideoReceiverAppliance provides generic functionality for converting an arbitrary
  * video input stream into VIDEO.CONTAINER payloads.
  *
  * We decided to make this a core abstract class that other appliances could extend because
- * ingesting video from different types of source in a normalized way is a core aspect of TV
+ * receiving video from different types of source in a normalized way is a core aspect of TV
  * Kitchen functionality.
  */
-class AbstractVideoIngestionAppliance extends AbstractAppliance {
-	// The FFmpeg process used to wrap the ingestion stream in an MPEG-TS container
+class AbstractVideoReceiverAppliance extends AbstractAppliance {
+	// The FFmpeg process used to wrap the input stream in an MPEG-TS container
 	ffmpegProcess = null
 
-	// The ingestion stream consumed by this engine, started by `start()` and stopped by `stop()`
+	// The stream consumed by this engine, started by `start()` and stopped by `stop()`
 	activeInputStream = null
 
 	// Utility for processing the MPEG-TS stream produced by ffmpeg
@@ -48,8 +48,8 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	// A Transformation stream that will convert MPEG-TS data into TV Kitchen Payloads
 	mpegtsProcessingStream = null
 
-	// A Writeable stream that will ingest Payloads into the TV Kitchen pipeline.
-	payloadIngestionStream = null
+	// A Writeable stream that will receive Payloads into the TV Kitchen pipeline.
+	payloadReceiverStream = null
 
 	// The number of times the TS stream has rolled over it's timestamps
 	// This happens once every 2^33 / 90000 MS
@@ -62,7 +62,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	rolloverOrigin = ''
 
 	/**
-	* Create a AbstractVideoIngestionAppliance.
+	* Create a AbstractVideoReceiverAppliance.
 	*
 	* @param  {String} settings.origin The ISO timestamp that marks the absoulte time associated
 	*                                  with position 0.
@@ -72,7 +72,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 			origin: (new Date()).toISOString(),
 			...settings,
 		})
-		if (this.constructor === AbstractVideoIngestionAppliance) {
+		if (this.constructor === AbstractVideoReceiverAppliance) {
 			throw new AbstractInstantiationError(this.constructor.name)
 		}
 
@@ -88,7 +88,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 			transform: this.processMpegtsStreamData.bind(this),
 		})
 
-		this.payloadIngestionStream = Writable({
+		this.payloadReceiverStream = Writable({
 			objectMode: true,
 			write: (payload, enc, done) => {
 				this.push(payload)
@@ -98,7 +98,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/**
-	 * Returns an FFmpeg settings array for this ingestion engine.
+	 * Returns an FFmpeg settings array for this receiver appliance.
 	 *
 	 * @return {String[]} A list of FFmpeg command line parameters
 	 */
@@ -115,11 +115,11 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/**
-	 * The ReadableStream that is being ingested by the ingestion engine.
+	 * The ReadableStream that is being consumed by the receiver appliance.
 	 *
 	 * NOTE: THIS MUST BE IMPLEMENTED
 	 *
-	 * @return {ReadableStream} The stream of data to be ingested by the ingestion engine
+	 * @return {ReadableStream} The stream of data to be consumed by the receiver appliance
 	 */
 	// eslint-disable-next-line class-methods-use-this
 	getInputStream() {
@@ -127,9 +127,9 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/**
-	 * Updates ingestion state based on the latest demuxed video packet data.
+	 * Updates receiver state based on the latest demuxed video packet data.
 	 *
-	 * This method is called by our MPEG-TS demuxer, and allows the ingestion engine to track
+	 * This method is called by our MPEG-TS demuxer, and allows the receiver appliance to track
 	 * the most recent demuxed video packet.
 	 *
 	 * @param  {Packet} packet The latest TSDemuxer Packet object
@@ -141,7 +141,7 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 
 	/**
-	 * Returns the most recent coherent stream packet processed by the ingestion engine.
+	 * Returns the most recent coherent stream packet processed by the receiver appliance.
 	 * This packet is lower level than the MPEG-TS container, and represents an audio or video
 	 * packet demuxed from the MPEG-TS stream.
 	 *
@@ -213,12 +213,12 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 		)
 		this.activeInputStream = this.getInputStream()
 
-		this.logger.info(`Starting ingestion from ${this.constructor.name}...`)
+		this.logger.info(`Starting receiving data from ${this.constructor.name}...`)
 		this.activeInputStream.pipe(this.ffmpegProcess.stdin)
 		pipeline(
 			this.ffmpegProcess.stdout,
 			this.mpegtsProcessingStream,
-			this.payloadIngestionStream,
+			this.payloadReceiverStream,
 			() => this.stop(),
 		)
 		return true
@@ -232,14 +232,14 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 		if (this.ffmpegProcess !== null) {
 			this.ffmpegProcess.kill()
 		}
-		this.logger.info(`Ended ingestion from ${this.constructor.name}...`)
+		this.logger.info(`Stopped receiving data from ${this.constructor.name}...`)
 		return true
 	}
 
 	/** @inheritdoc */
 	// eslint-disable-next-line class-methods-use-this
 	async invoke() {
-		throw new Error('Ingestion Appliances cannot be invoked.')
+		throw new Error('Receiver Appliances cannot be invoked.')
 	}
 
 	/** @inheritdoc */
@@ -253,4 +253,4 @@ class AbstractVideoIngestionAppliance extends AbstractAppliance {
 	}
 }
 
-export { AbstractVideoIngestionAppliance }
+export { AbstractVideoReceiverAppliance }

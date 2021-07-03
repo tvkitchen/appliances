@@ -11,10 +11,10 @@ import {
 } from '@tvkitchen/base-errors'
 import { dataTypes } from '@tvkitchen/base-constants'
 import { Payload } from '@tvkitchen/base-classes'
-import { AbstractVideoIngestionAppliance } from '../AbstractVideoIngestionAppliance'
+import { AbstractVideoReceiverAppliance } from '../AbstractVideoReceiverAppliance'
 import {
-	FullyImplementedVideoIngestionAppliance,
-	PartiallyImplementedVideoIngestionAppliance,
+	FullyImplementedVideoReceiverAppliance,
+	PartiallyImplementedVideoReceiverAppliance,
 } from './classes'
 
 // Set up mocks
@@ -32,15 +32,15 @@ const {
 	Writable,
 } = jest.requireActual('stream')
 
-describe('AbstractVideoIngestionAppliance #unit', () => {
+describe('AbstractVideoReceiverAppliance #unit', () => {
 	describe('constructor', () => {
 		it('should throw an error when called directly', () => {
-			expect(() => new AbstractVideoIngestionAppliance())
+			expect(() => new AbstractVideoReceiverAppliance())
 				.toThrow(AbstractInstantiationError)
 		})
 
 		it('should allow construction when extended', () => {
-			expect(() => new PartiallyImplementedVideoIngestionAppliance())
+			expect(() => new PartiallyImplementedVideoReceiverAppliance())
 				.not.toThrow(Error)
 		})
 	})
@@ -48,80 +48,80 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 	describe('processMpegtsStreamData', () => {
 		it('should pass the data to the mpegts demuxer', () => {
 			jest.clearAllMocks()
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.mpegTsDemuxer = {
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.mpegTsDemuxer = {
 				write: jest.fn(),
 			}
-			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({ pts: 0 })
+			receiverAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({ pts: 0 })
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
-			ingestionAppliance.processMpegtsStreamData(streamData, null, () => {
-				expect(ingestionAppliance.mpegTsDemuxer.write).toHaveBeenCalledTimes(1)
+			receiverAppliance.processMpegtsStreamData(streamData, null, () => {
+				expect(receiverAppliance.mpegTsDemuxer.write).toHaveBeenCalledTimes(1)
 			})
 		})
 		it('should emit a Payload of type STREAM.CONTAINER', () => {
 			jest.clearAllMocks()
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.mpegtsDemuxer = { process: jest.fn }
-			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({ pts: 0 })
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.mpegtsDemuxer = { process: jest.fn }
+			receiverAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({ pts: 0 })
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
-			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
+			receiverAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
 				expect(result).toBeInstanceOf(Payload)
 				expect(result.type).toEqual(dataTypes.STREAM.CONTAINER)
 			})
 		})
 		it('should emit a Payload that contains the MPEG-TS data', () => {
 			jest.clearAllMocks()
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.mpegtsDemuxer = { process: jest.fn }
-			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({ pts: 0 })
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.mpegtsDemuxer = { process: jest.fn }
+			receiverAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValueOnce({ pts: 0 })
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
-			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
+			receiverAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
 				expect(result).toBeInstanceOf(Payload)
 				expect(result.data).toEqual(streamData)
 			})
 		})
 		it('should correctly decorate the Payload position', () => {
 			jest.clearAllMocks()
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.mpegtsDemuxer = {
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.mpegtsDemuxer = {
 				process: jest.fn(),
 			}
 			const testData = loadTestData(__dirname, 'processMpegtsStreamData.json')
 			const videoPacket = testData[0]
-			ingestionAppliance.onDemuxedPacket(videoPacket)
+			receiverAppliance.onDemuxedPacket(videoPacket)
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
-			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
+			receiverAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
 				expect(result.position).toEqual(13946)
 			})
 		})
 		it('should correctly decorate the Payload createdAt', () => {
 			jest.clearAllMocks()
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.mpegtsDemuxer = {
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.mpegtsDemuxer = {
 				process: jest.fn(),
 			}
 			const testData = loadTestData(__dirname, 'processMpegtsStreamData.json')
 			const videoPacket = testData[0]
-			ingestionAppliance.onDemuxedPacket(videoPacket)
+			receiverAppliance.onDemuxedPacket(videoPacket)
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
-			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
+			receiverAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
 				expect(typeof result.createdAt).toBe('string')
 			})
 		})
 		it('should correctly decorate the Payload origin', () => {
 			jest.clearAllMocks()
 			const originTime = new Date()
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance({
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance({
 				origin: originTime.toISOString(),
 			})
-			ingestionAppliance.mpegtsDemuxer = {
+			receiverAppliance.mpegtsDemuxer = {
 				process: jest.fn(),
 			}
-			ingestionAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValue({
+			receiverAppliance.getMostRecentDemuxedPacket = jest.fn().mockReturnValue({
 				pts: 90000,
 			})
 			const streamData = Buffer.from('testDataXYZ', 'utf8')
-			ingestionAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
+			receiverAppliance.processMpegtsStreamData(streamData, null, (err, result) => {
 				expect(result.origin).toEqual(originTime.toISOString())
 			})
 		})
@@ -133,13 +133,13 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			const videoPacket1 = testData[0]
 			const videoPacket2 = testData[1]
 			const audioPacket1 = testData[1]
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.onDemuxedPacket(videoPacket1)
-			expect(ingestionAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket1)
-			ingestionAppliance.onDemuxedPacket(videoPacket2)
-			expect(ingestionAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket2)
-			ingestionAppliance.onDemuxedPacket(audioPacket1)
-			expect(ingestionAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket2)
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.onDemuxedPacket(videoPacket1)
+			expect(receiverAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket1)
+			receiverAppliance.onDemuxedPacket(videoPacket2)
+			expect(receiverAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket2)
+			receiverAppliance.onDemuxedPacket(audioPacket1)
+			expect(receiverAppliance.mostRecentDemuxedVideoPacket).toEqual(videoPacket2)
 		})
 	})
 
@@ -147,13 +147,13 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 		it('should return the value in most recent demuxed packet', () => {
 			const testData = loadTestData(__dirname, 'getMostRecentDemuxedPacket.json')
 			const videoPacket = testData[0]
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.onDemuxedPacket(videoPacket)
-			expect(ingestionAppliance.getMostRecentDemuxedVideoPacket()).toEqual(videoPacket)
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.onDemuxedPacket(videoPacket)
+			expect(receiverAppliance.getMostRecentDemuxedVideoPacket()).toEqual(videoPacket)
 		})
 		it('should return null if nothing has been processed', () => {
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			expect(ingestionAppliance.getMostRecentDemuxedVideoPacket()).toBe(null)
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			expect(receiverAppliance.getMostRecentDemuxedVideoPacket()).toBe(null)
 		})
 	})
 
@@ -165,11 +165,11 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 				stdin: new Writable(),
 			})
 			const inputStream = new Readable({ read: () => {} })
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance({
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance({
 				readableStream: inputStream,
 			})
-			ingestionAppliance.producer = { connect: jest.fn().mockResolvedValue() }
-			ingestionAppliance.start()
+			receiverAppliance.producer = { connect: jest.fn().mockResolvedValue() }
+			receiverAppliance.start()
 			expect(childProcess.spawn).toHaveBeenCalledTimes(1)
 		})
 		it('should create a processing pipeline', async () => {
@@ -180,11 +180,11 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 			})
 			childProcess.spawn.mockReturnValueOnce({})
 			const inputStream = new Readable({ read: jest.fn() })
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance({
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance({
 				readableStream: inputStream,
 			})
-			ingestionAppliance.producer = { connect: jest.fn().mockResolvedValue() }
-			await ingestionAppliance.start()
+			receiverAppliance.producer = { connect: jest.fn().mockResolvedValue() }
+			await receiverAppliance.start()
 			expect(stream.pipeline).toHaveBeenCalledTimes(1)
 		})
 	})
@@ -192,52 +192,52 @@ describe('AbstractVideoIngestionAppliance #unit', () => {
 	describe('stop', () => {
 		it('should kill the ffmpeg process and stop the stream', () => {
 			jest.clearAllMocks()
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.activeInputStream = {
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.activeInputStream = {
 				destroy: jest.fn(),
 			}
-			ingestionAppliance.ffmpegProcess = {
+			receiverAppliance.ffmpegProcess = {
 				kill: jest.fn(),
 			}
-			ingestionAppliance.producer = {
+			receiverAppliance.producer = {
 				disconnect: jest.fn(),
 			}
-			ingestionAppliance.stop()
-			expect(ingestionAppliance.activeInputStream.destroy).toHaveBeenCalledTimes(1)
-			expect(ingestionAppliance.ffmpegProcess.kill).toHaveBeenCalledTimes(1)
+			receiverAppliance.stop()
+			expect(receiverAppliance.activeInputStream.destroy).toHaveBeenCalledTimes(1)
+			expect(receiverAppliance.ffmpegProcess.kill).toHaveBeenCalledTimes(1)
 		})
 		it('should not error if called before starting', () => {
 			jest.clearAllMocks()
-			const ingestionAppliance = new FullyImplementedVideoIngestionAppliance()
-			ingestionAppliance.producer = {
+			const receiverAppliance = new FullyImplementedVideoReceiverAppliance()
+			receiverAppliance.producer = {
 				disconnect: jest.fn(),
 			}
-			expect(() => ingestionAppliance.stop()).not.toThrow()
+			expect(() => receiverAppliance.stop()).not.toThrow()
 		})
 	})
 
 	describe('getInputStream', () => {
 		it('should throw an error when called without an implementation', () => {
-			const ingestionAppliance = new PartiallyImplementedVideoIngestionAppliance()
-			expect(ingestionAppliance.getInputStream).toThrow(NotImplementedError)
+			const receiverAppliance = new PartiallyImplementedVideoReceiverAppliance()
+			expect(receiverAppliance.getInputStream).toThrow(NotImplementedError)
 		})
 	})
 
 	describe('getFfmpegSettings', () => {
 		it('should return an array', () => {
-			expect(AbstractVideoIngestionAppliance.getFfmpegSettings()).toBeInstanceOf(Array)
+			expect(AbstractVideoReceiverAppliance.getFfmpegSettings()).toBeInstanceOf(Array)
 		})
 	})
 
 	describe('getInputTypes', () => {
 		it('should return an empty array', () => {
-			expect(AbstractVideoIngestionAppliance.getInputTypes()).toEqual([])
+			expect(AbstractVideoReceiverAppliance.getInputTypes()).toEqual([])
 		})
 	})
 
 	describe('getOutputTypes', () => {
 		it('should return a the STREAM.CONTAINER', () => {
-			expect(AbstractVideoIngestionAppliance.getOutputTypes()).toEqual([dataTypes.STREAM.CONTAINER])
+			expect(AbstractVideoReceiverAppliance.getOutputTypes()).toEqual([dataTypes.STREAM.CONTAINER])
 		})
 	})
 })

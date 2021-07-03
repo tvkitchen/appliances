@@ -1,6 +1,6 @@
 export { FullyImplementedAppliance } from './FullyImplementedAppliance'
 export { PartiallyImplementedAppliance } from './PartiallyImplementedAppliance'
-export { FullyImplementedVideoIngestionAppliance } from './FullyImplementedVideoIngestionAppliance'
+export { FullyImplementedVideoReceiverAppliance } from './FullyImplementedVideoReceiverAppliance'
 export {
-	PartiallyImplementedVideoIngestionAppliance,
-} from './PartiallyImplementedVideoIngestionAppliance'
+	PartiallyImplementedVideoReceiverAppliance,
+} from './PartiallyImplementedVideoReceiverAppliance'

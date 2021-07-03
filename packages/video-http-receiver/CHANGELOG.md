@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Rename package to `@tvkitchen/appliance-video-http-receiver`.
+- Rename exported class to `VideoHttpReceiverAppliance`.
 - Extend the newly named `AbstractVideoReceiverAppliance`.
-- Update `@tvkitchen/appliance-core` to version `0.7.1`.
+- Update `@tvkitchen/appliance-core` to version `0.8.0`.
 
 ## [0.3.2] - 2021-05-13
 ### Changed

@@ -6,7 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Changed
+
+## [0.8.0] - 2020-07-02
 - The `AbstractVideoIngestionAppliance` is now renamed to `AbstractVideoReceiverAppliance`.
 
 ## [0.7.1] - 2020-07-02
@@ -85,7 +86,8 @@ This package is identical to [0.6.1] but was deprecated due to a publication err
 - Increase the `base-classes` version dependency to `1.3.0`.
 - Increase the `base-interfaces` version dependency to `3.0.0`.
 
-[Unreleased]: https://github.com/tvkitchen/appliances/compare/@tvkitchen/appliance-video-file-ingestion@0.7.1...HEAD
+[Unreleased]: https://github.com/tvkitchen/appliances/compare/@tvkitchen/appliance-video-file-ingestion@0.8.0...HEAD
+[0.8.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.8.0
 [0.7.1]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.7.1
 [0.7.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.7.0
 [0.6.1]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-core@0.6.1

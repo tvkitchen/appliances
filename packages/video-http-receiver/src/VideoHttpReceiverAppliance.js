@@ -3,15 +3,15 @@ import fetch from 'node-fetch'
 import { AbstractVideoReceiverAppliance } from '@tvkitchen/appliance-core'
 
 /**
- * The VideoHttpIngestionAppliance handles processing a HTTP video stream. It is a concrete
- * implementation of AbstractIngestionAppliance, which reads in a stream, converts it into
+ * The VideoHttpReceiverAppliance is able to process data from an HTTP video stream. It is an
+ * implementation of AbstractVideoReceiverAppliance, which reads in a stream, converts it into
  * an MPEG-TS stream represented as a series of Payloads, and then emits those Payloads.
  *
- * @extends AbstractVideoIngestionAppliance
+ * @extends AbstractVideoReceiverAppliance
  */
-class VideoHttpIngestionAppliance extends AbstractVideoReceiverAppliance {
+class VideoHttpReceiverAppliance extends AbstractVideoReceiverAppliance {
 	/**
-	 * Create a VideoHttpIngestionEngine.
+	 * Create a VideoHttpReceiverAppliance.
 	 *
 	 * @param  {string} settings.url The url of the stream to be ingested
 	 */
@@ -22,7 +22,7 @@ class VideoHttpIngestionAppliance extends AbstractVideoReceiverAppliance {
 		})
 		if (!settings.url) {
 			throw new Error(
-				'HttpIngestionAppliance must be instantiated with a stream URL',
+				'VideoHttpReceiverAppliance must be instantiated with a stream URL',
 			)
 		}
 	}
@@ -45,4 +45,4 @@ class VideoHttpIngestionAppliance extends AbstractVideoReceiverAppliance {
 	}
 }
 
-export { VideoHttpIngestionAppliance }
+export { VideoHttpReceiverAppliance }

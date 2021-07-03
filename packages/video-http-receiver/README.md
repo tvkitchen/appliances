@@ -1,11 +1,11 @@
-# TV Kitchen Video HTTP Ingestion Appliance
+# TV Kitchen Video HTTP Receiver Appliance
 
 ```
 inputTypes: none
 outputTypes: STREAM.CONTAINER
 ```
 
-The Video HTTP Ingestion appliance is configured to ingest a video URL and convert it into `STREAM.CONTAINER` payloads.
+The Video HTTP Receiver Appliance is configured to process data from a video URL and convert it into `STREAM.CONTAINER` payloads.
 
 ## Dependencies
 

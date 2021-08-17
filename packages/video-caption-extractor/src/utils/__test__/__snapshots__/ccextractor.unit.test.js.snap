@@ -1,28 +1,435 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line 1`] = `
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 1`] = `
 Object {
   "createdAt": Any<String>,
-  "data": "CLEANUP GUY AND IF YOU L",
-  "duration": 834,
+  "data": "S",
+  "duration": 21,
   "origin": "",
   "position": 58892,
   "type": "TEXT.ATOM",
 }
 `;
 
-exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert the diff between two lines 1`] = `
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 2`] = `
 Object {
   "createdAt": Any<String>,
-  "data": "OO",
-  "duration": 33,
+  "data": "i",
+  "duration": 21,
   "origin": "",
-  "position": 59726,
+  "position": 58913,
   "type": "TEXT.ATOM",
 }
 `;
 
-exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should detect and emit new lines 1`] = `
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 3`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "n",
+  "duration": 21,
+  "origin": "",
+  "position": 58934,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 4`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "g",
+  "duration": 21,
+  "origin": "",
+  "position": 58956,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 5`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "i",
+  "duration": 21,
+  "origin": "",
+  "position": 58977,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 6`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "n",
+  "duration": 21,
+  "origin": "",
+  "position": 58998,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 7`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "g",
+  "duration": 21,
+  "origin": "",
+  "position": 59020,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 8`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 21,
+  "origin": "",
+  "position": 59041,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 9`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "h",
+  "duration": 21,
+  "origin": "",
+  "position": 59063,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 10`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "e",
+  "duration": 21,
+  "origin": "",
+  "position": 59084,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 11`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 21,
+  "origin": "",
+  "position": 59105,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 12`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "w",
+  "duration": 21,
+  "origin": "",
+  "position": 59127,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 13`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 21,
+  "origin": "",
+  "position": 59148,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 14`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 21,
+  "origin": "",
+  "position": 59170,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 15`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": ",",
+  "duration": 21,
+  "origin": "",
+  "position": 59191,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 16`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 21,
+  "origin": "",
+  "position": 59212,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 17`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "o",
+  "duration": 21,
+  "origin": "",
+  "position": 59234,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 18`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "r",
+  "duration": 21,
+  "origin": "",
+  "position": 59255,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 19`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 21,
+  "origin": "",
+  "position": 59276,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 20`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "f",
+  "duration": 21,
+  "origin": "",
+  "position": 59298,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 21`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "l",
+  "duration": 21,
+  "origin": "",
+  "position": 59319,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 22`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "u",
+  "duration": 21,
+  "origin": "",
+  "position": 59341,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 23`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "t",
+  "duration": 21,
+  "origin": "",
+  "position": 59362,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 24`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "i",
+  "duration": 21,
+  "origin": "",
+  "position": 59383,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 25`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "n",
+  "duration": 21,
+  "origin": "",
+  "position": 59405,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 26`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "g",
+  "duration": 21,
+  "origin": "",
+  "position": 59426,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 27`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 21,
+  "origin": "",
+  "position": 59448,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 28`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 21,
+  "origin": "",
+  "position": 59469,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 29`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "l",
+  "duration": 21,
+  "origin": "",
+  "position": 59490,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 30`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "l",
+  "duration": 21,
+  "origin": "",
+  "position": 59512,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 31`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 21,
+  "origin": "",
+  "position": 59533,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 32`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "t",
+  "duration": 21,
+  "origin": "",
+  "position": 59554,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 33`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "h",
+  "duration": 21,
+  "origin": "",
+  "position": 59576,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 34`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "e",
+  "duration": 21,
+  "origin": "",
+  "position": 59597,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 35`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 21,
+  "origin": "",
+  "position": 59619,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 36`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "d",
+  "duration": 21,
+  "origin": "",
+  "position": 59640,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 37`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 21,
+  "origin": "",
+  "position": 59661,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 38`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "y",
+  "duration": 21,
+  "origin": "",
+  "position": 59683,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 39`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": ";",
+  "duration": 21,
+  "origin": "",
+  "position": 59704,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should convert a single line to ATOM payloads 40`] = `
 Object {
   "createdAt": Any<String>,
   "data": "
@@ -34,13 +441,884 @@ Object {
 }
 `;
 
-exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should detect and emit new lines 2`] = `
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 1`] = `
 Object {
   "createdAt": Any<String>,
-  "data": "He was as fresh as is the month of May.",
-  "duration": 33,
+  "data": "H",
+  "duration": 1,
   "origin": "",
-  "position": 59726,
+  "position": 0,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 2`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "e",
+  "duration": 1,
+  "origin": "",
+  "position": 1,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 3`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 2,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 4`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "w",
+  "duration": 1,
+  "origin": "",
+  "position": 3,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 5`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 1,
+  "origin": "",
+  "position": 4,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 6`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 5,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 7`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 6,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 8`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 1,
+  "origin": "",
+  "position": 7,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 9`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 8,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 10`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 9,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 11`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "f",
+  "duration": 1,
+  "origin": "",
+  "position": 10,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 12`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "r",
+  "duration": 1,
+  "origin": "",
+  "position": 11,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 13`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "e",
+  "duration": 1,
+  "origin": "",
+  "position": 12,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 14`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 13,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 15`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "h",
+  "duration": 1,
+  "origin": "",
+  "position": 14,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 16`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 15,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 17`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 1,
+  "origin": "",
+  "position": 16,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 18`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 17,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 19`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 18,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 20`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "i",
+  "duration": 1,
+  "origin": "",
+  "position": 19,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 21`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 20,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 22`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 21,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 23`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "t",
+  "duration": 1,
+  "origin": "",
+  "position": 22,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 24`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "h",
+  "duration": 1,
+  "origin": "",
+  "position": 23,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 25`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "e",
+  "duration": 1,
+  "origin": "",
+  "position": 24,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 26`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 25,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 27`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "m",
+  "duration": 1,
+  "origin": "",
+  "position": 26,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 28`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "o",
+  "duration": 1,
+  "origin": "",
+  "position": 27,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 29`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "n",
+  "duration": 1,
+  "origin": "",
+  "position": 28,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 30`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "t",
+  "duration": 1,
+  "origin": "",
+  "position": 29,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 31`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "h",
+  "duration": 1,
+  "origin": "",
+  "position": 30,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 32`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 31,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 33`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "o",
+  "duration": 1,
+  "origin": "",
+  "position": 32,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 34`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "f",
+  "duration": 1,
+  "origin": "",
+  "position": 33,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 35`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 34,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 36`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "M",
+  "duration": 1,
+  "origin": "",
+  "position": 35,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 37`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 1,
+  "origin": "",
+  "position": 36,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 38`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "y",
+  "duration": 1,
+  "origin": "",
+  "position": 37,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 39`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": ".",
+  "duration": 1,
+  "origin": "",
+  "position": 38,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should evenly distribute ATOM positions across the entire line 40`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "
+",
+  "duration": 0,
+  "origin": "",
+  "position": 39,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 1`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "H",
+  "duration": 1,
+  "origin": "",
+  "position": 0,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 2`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "e",
+  "duration": 1,
+  "origin": "",
+  "position": 1,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 3`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 2,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 4`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "w",
+  "duration": 1,
+  "origin": "",
+  "position": 3,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 5`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 1,
+  "origin": "",
+  "position": 4,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 6`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 5,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 7`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 6,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 8`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 1,
+  "origin": "",
+  "position": 7,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 9`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 8,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 10`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 9,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 11`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "f",
+  "duration": 1,
+  "origin": "",
+  "position": 10,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 12`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "r",
+  "duration": 1,
+  "origin": "",
+  "position": 11,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 13`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "e",
+  "duration": 1,
+  "origin": "",
+  "position": 12,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 14`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 13,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 15`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "h",
+  "duration": 1,
+  "origin": "",
+  "position": 14,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 16`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 15,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 17`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 1,
+  "origin": "",
+  "position": 16,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 18`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 17,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 19`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 18,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 20`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "i",
+  "duration": 1,
+  "origin": "",
+  "position": 19,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 21`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "s",
+  "duration": 1,
+  "origin": "",
+  "position": 20,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 22`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 21,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 23`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "t",
+  "duration": 1,
+  "origin": "",
+  "position": 22,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 24`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "h",
+  "duration": 1,
+  "origin": "",
+  "position": 23,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 25`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "e",
+  "duration": 1,
+  "origin": "",
+  "position": 24,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 26`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 25,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 27`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "m",
+  "duration": 1,
+  "origin": "",
+  "position": 26,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 28`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "o",
+  "duration": 1,
+  "origin": "",
+  "position": 27,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 29`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "n",
+  "duration": 1,
+  "origin": "",
+  "position": 28,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 30`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "t",
+  "duration": 1,
+  "origin": "",
+  "position": 29,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 31`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "h",
+  "duration": 1,
+  "origin": "",
+  "position": 30,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 32`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 31,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 33`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "o",
+  "duration": 1,
+  "origin": "",
+  "position": 32,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 34`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "f",
+  "duration": 1,
+  "origin": "",
+  "position": 33,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 35`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": " ",
+  "duration": 1,
+  "origin": "",
+  "position": 34,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 36`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "M",
+  "duration": 1,
+  "origin": "",
+  "position": 35,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 37`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "a",
+  "duration": 1,
+  "origin": "",
+  "position": 36,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 38`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "y",
+  "duration": 1,
+  "origin": "",
+  "position": 37,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 39`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": ".",
+  "duration": 1,
+  "origin": "",
+  "position": 38,
+  "type": "TEXT.ATOM",
+}
+`;
+
+exports[`ccextractor utils #unit convertCcExtractorLineToPayloads should have a common duration 40`] = `
+Object {
+  "createdAt": Any<String>,
+  "data": "
+",
+  "duration": 0,
+  "origin": "",
+  "position": 39,
   "type": "TEXT.ATOM",
 }
 `;

@@ -13,8 +13,6 @@ import {
 class VideoCaptionExtractorAppliance extends AbstractAppliance {
 	ccExtractorProcess = null
 
-	mostRecentLine = null
-
 	static getInputTypes = () => [dataTypes.STREAM.CONTAINER]
 
 	static getOutputTypes = () => [dataTypes.TEXT.ATOM]
@@ -29,11 +27,7 @@ class VideoCaptionExtractorAppliance extends AbstractAppliance {
 		const lines = parseCcExtractorLines(data.toString())
 		const payloads = lines
 			.filter((line) => line.text !== '')
-			.flatMap((line) => {
-				const previousLine = this.mostRecentLine
-				this.mostRecentLine = line
-				return convertCcExtractorLineToPayloads(line, previousLine)
-			})
+			.flatMap((line) => convertCcExtractorLineToPayloads(line))
 			.filter((payload) => payload.data !== '')
 		payloads.forEach((payload) => this.push(payload))
 	}
@@ -56,8 +50,6 @@ class VideoCaptionExtractorAppliance extends AbstractAppliance {
 				'-stdout',
 				'--stream',
 				'-out=txt',
-				'-dru', // output characters as they arrive
-				'-ru1', // only render the current line
 				'-customtxt', '1100100', // start time, end time, use relative timestamp
 				'-',
 			],

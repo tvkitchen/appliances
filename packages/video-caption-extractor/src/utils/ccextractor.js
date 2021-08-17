@@ -1,7 +1,7 @@
 import { Payload } from '@tvkitchen/base-classes'
 import { dataTypes } from '@tvkitchen/base-constants'
 import { CCExtractorLine } from '../CCExtractorLine'
-import { getDiff } from './string'
+import { generateNewlineTextAtomPayload } from './payload'
 
 /**
  * Converts a ccextractor timestamp (HH:MM:SS,MS) to milliseconds.
@@ -70,36 +70,28 @@ export const parseCcExtractorLines = (str) => str
 	.filter((line) => line !== null)
 
 /**
- * Takes a pair of CCExtractorLines and generates a payload based on their
- * differences.
+ * Takes a CCExtractorLine and generates a series of TEXT.ATOM payloads.
  *
- * @param  {CCExtractorLine} line         [description]
- * @param  {CCExtractorLine} previousLine [description]
- * @return {[type]}      [description]
+ * The timing of the payloads will be evenly distribted between the start and end
+ * of the CCExtractorLine.
+ *
+ * Since this is converting a line, it will include an additional newline payload immediately after
+ * the final character to signal the end of the line's data in the payload stream.
+ *
+ * @param  {CCExtractorLine} The CCEXtractorLine to process
+ * @return {Payload[]}       An array of resulting TEXT.ATOM payloads.
  */
-export const convertCcExtractorLineToPayloads = (line, previousLine = null) => {
-	const newCharacters = getDiff(line.text, previousLine ? previousLine.text : '')
-	const isNewLine = (newCharacters === line.text)
-	const start = (previousLine && previousLine.end !== 0)
-		? previousLine.end
-		: line.start
-	const end = line.end !== 0
-		? line.end
-		: Math.max(previousLine.end, line.start)
-	const payloads = []
-	if (isNewLine && previousLine !== null) {
-		payloads.push(new Payload({
-			data: '\n',
+export const convertCcExtractorLineToPayloads = (line) => {
+	const atomCount = line.text.length
+	const lineDuration = line.end - line.start
+	const atomDuration = lineDuration / atomCount
+	const payloads = Array.from(line.text)
+		.map((atom, index) => new Payload({
+			data: atom,
 			type: dataTypes.TEXT.ATOM,
-			position: start,
-			duration: 0,
+			position: Math.trunc(line.start + atomDuration * index),
+			duration: Math.trunc(atomDuration),
 		}))
-	}
-	payloads.push(new Payload({
-		data: newCharacters,
-		type: dataTypes.TEXT.ATOM,
-		position: start,
-		duration: end - start,
-	}))
+	payloads.push(generateNewlineTextAtomPayload(line.end))
 	return payloads
 }

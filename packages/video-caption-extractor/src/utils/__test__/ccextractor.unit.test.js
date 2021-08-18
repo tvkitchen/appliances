@@ -69,82 +69,50 @@ lol this is not valid`))
 		})
 	})
 	describe('convertCcExtractorLineToPayloads', () => {
-		it('should convert a single line', () => {
+		it('should convert a single line to ATOM payloads', () => {
+			const text = 'Singing he was, or fluting all the day;'
 			const ccExtractorLine = new CCExtractorLine({
 				start: 58892,
 				end: 59726,
-				text: 'CLEANUP GUY AND IF YOU L',
+				text,
 			})
 			const payloads = convertCcExtractorLineToPayloads(ccExtractorLine)
+			expect(payloads.length).toBe(text.length + 1)
 			payloads.forEach((payload) => {
 				expect(payload).toMatchSnapshot({
 					createdAt: expect.any(String),
 				})
 			})
 		})
-		it('should convert the diff between two lines', () => {
-			const previousLine = new CCExtractorLine({
-				start: 58892,
-				end: 59726,
-				text: 'CLEANUP GUY AND IF YOU L',
-			})
-			const newLine = new CCExtractorLine({
-				start: 58892,
-				end: 59759,
-				text: 'CLEANUP GUY AND IF YOU LOO',
-			})
-			const payloads = convertCcExtractorLineToPayloads(newLine, previousLine)
-			payloads.forEach((payload) => {
-				expect(payload).toMatchSnapshot({
-					createdAt: expect.any(String),
-				})
-			})
-		})
-		it('should detect and emit new lines', () => {
-			const previousLine = new CCExtractorLine({
-				start: 58892,
-				end: 59726,
-				text: 'Singing he was, or fluting all the day;',
-			})
-			const newLine = new CCExtractorLine({
-				start: 58892,
-				end: 59759,
-				text: 'He was as fresh as is the month of May.',
-			})
-			const payloads = convertCcExtractorLineToPayloads(newLine, previousLine)
-			payloads.forEach((payload) => {
-				expect(payload).toMatchSnapshot({
-					createdAt: expect.any(String),
-				})
-			})
-		})
-		it('should use previous timestamp end as end if new end is zero', () => {
-			const previousLine = new CCExtractorLine({
-				start: 58892,
-				end: 59726,
-				text: 'Singing he was, or fluting all the day;',
-			})
+
+		it('should have a common duration', () => {
+			const text = 'He was as fresh as is the month of May.'
 			const newLine = new CCExtractorLine({
 				start: 0,
-				end: 0,
-				text: 'He was as fresh as is the month of May.',
+				end: text.length,
+				text,
 			})
-			const payloads = convertCcExtractorLineToPayloads(newLine, previousLine)
-			expect(payloads[1].position).toBe(59726)
+			const payloads = convertCcExtractorLineToPayloads(newLine)
+			payloads.forEach((payload) => {
+				expect(payload).toMatchSnapshot({
+					createdAt: expect.any(String),
+				})
+			})
 		})
-		it('should use the current start if previous end is zero', () => {
-			const previousLine = new CCExtractorLine({
-				start: 58890,
-				end: 0,
-				text: 'Singing he was, or fluting all the day;',
-			})
+
+		it('should evenly distribute ATOM positions across the entire line', () => {
+			const text = 'He was as fresh as is the month of May.'
 			const newLine = new CCExtractorLine({
-				start: 58892,
-				end: 58896,
-				text: 'He was as fresh as is the month of May.',
+				start: 0,
+				end: text.length,
+				text,
 			})
-			const payloads = convertCcExtractorLineToPayloads(newLine, previousLine)
-			expect(payloads[1].position).toBe(58892)
+			const payloads = convertCcExtractorLineToPayloads(newLine)
+			payloads.forEach((payload) => {
+				expect(payload).toMatchSnapshot({
+					createdAt: expect.any(String),
+				})
+			})
 		})
 	})
 })

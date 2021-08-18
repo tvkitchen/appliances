@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 2021-08-18
+### Fixed
+- The caption extraction algorithm now only processes finalized lines from CCExtractor.  This prevents issues where edited lines would be emitted redundantly.
+- TEXT.ATOM payloads emitted by this appliance no longer contain multiple characters.
+
 ## [0.5.0] - 2021-05-13
 ### Changed
 - Update `@tvkitchen/base-classes` to version `2.0.0-alpha.1`.
@@ -39,7 +44,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial implementation of the `CCExtractorAppliance`
 
-[Unreleased]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-ccextractor@0.5.0...HEAD
+[Unreleased]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-ccextractor@0.5.1...HEAD
+[0.5.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-ccextractor@0.5.1
 [0.5.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-ccextractor@0.5.0
 [0.4.0]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-ccextractor@0.4.0
 [0.3.1]: https://github.com/tvkitchen/appliances/releases/tag/@tvkitchen/appliance-ccextractor@0.3.1

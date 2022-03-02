@@ -1,6 +1,5 @@
-export { FullyImplementedAppliance } from './FullyImplementedAppliance'
-export { PartiallyImplementedAppliance } from './PartiallyImplementedAppliance'
-export { FullyImplementedVideoReceiverAppliance } from './FullyImplementedVideoReceiverAppliance'
-export {
-	PartiallyImplementedVideoReceiverAppliance,
-} from './PartiallyImplementedVideoReceiverAppliance'
+export * from './DynamicTypeAppliance'
+export * from './FullyImplementedAppliance'
+export * from './PartiallyImplementedAppliance'
+export * from './FullyImplementedVideoReceiverAppliance'
+export * from './PartiallyImplementedVideoReceiverAppliance'

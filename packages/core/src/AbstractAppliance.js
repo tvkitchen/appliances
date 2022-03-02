@@ -43,7 +43,7 @@ class AbstractAppliance extends IAppliance {
 	/** @inheritdoc */
 	async isValidPayload(payload) {
 		assert(
-			this.constructor.getInputTypes().includes(payload.type),
+			this.constructor.getInputTypes(this.settings).includes(payload.type),
 			`${payload.type} is not a valid Payload type for this appliance.`,
 		)
 		return true

@@ -10,6 +10,7 @@ import {
 } from '@tvkitchen/base-classes'
 import { AbstractAppliance } from '../AbstractAppliance'
 import {
+	DynamicTypeAppliance,
 	FullyImplementedAppliance,
 	PartiallyImplementedAppliance,
 } from './classes'
@@ -39,10 +40,23 @@ describe('AbstractAppliance #unit', () => {
 			appliance.isValidPayload(payload)
 				.catch((err) => expect(err).toBeDefined())
 		})
+
 		it('should return true when passed a payload with a matching inputType', async () => {
 			const payload = new Payload({ type: 'FOO' })
 			const appliance = new FullyImplementedAppliance()
 			expect(await appliance.isValidPayload(payload)).toBe(true)
+		})
+
+		it('should handle dynamic payload types', async () => {
+			const payloadType = 'myType'
+			const payload = new Payload({ type: payloadType })
+			const wrongPayload = new Payload({ type: 'anotherType' })
+			const appliance = new DynamicTypeAppliance(
+				{ inputTypes: [payloadType] },
+			)
+			expect(await appliance.isValidPayload(payload)).toBe(true)
+			appliance.isValidPayload(wrongPayload)
+				.catch((err) => expect(err).toBeDefined())
 		})
 	})
 

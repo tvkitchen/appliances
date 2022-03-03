@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- `AbstractAppliance` now passes the instance's settings to the `getInputTypes` method when determining a payload's validity.  This allows appliances to define configurable input and output types.
 
 ## [0.8.0] - 2020-07-02
 - The `AbstractVideoIngestionAppliance` is now renamed to `AbstractVideoReceiverAppliance`.

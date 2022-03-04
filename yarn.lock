@@ -1064,6 +1064,13 @@
   dependencies:
     "@tvkitchen/base-errors" "^1.0.0"
 
+"@tvkitchen/base-interfaces@4.0.0-alpha.5":
+  version "4.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/@tvkitchen/base-interfaces/-/base-interfaces-4.0.0-alpha.5.tgz#bccd905bbb94b635f3ce4bb67123beee103e37c2"
+  integrity sha512-XbI4HwqMqve8Km5Cr9sGmbUluDE3dSPAj20796To38H7OW5mpv3pJJbNVrCTjiUJ1NIB7BHWmVf6/ENB1xuy8A==
+  dependencies:
+    "@tvkitchen/base-errors" "^1.0.0"
+
 "@types/babel__core@^7.1.7":
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.7.tgz#1dacad8840364a57c98d0dd4855c6dd3752c6b89"

@@ -1,7 +1,7 @@
 {
   "name": "@tvkitchen/appliance-video-segment-generator",
   "description": "Identifies segments based on payload timestamps.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/tvkitchen/appliances.git",

@@ -1,7 +1,7 @@
 # TV Kitchen Caption SRT Generator Appliance
 
 ```
-inputTypes: TEXT.ATOM
+inputTypes: TEXT.ATOM, SEGMENT.START
 outputTypes: TEXT.SRT
 ```
 

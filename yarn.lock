@@ -1028,30 +1028,6 @@
   dependencies:
     type-detect "4.0.8"
 
-"@tvkitchen/appliance-core@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@tvkitchen/appliance-core/-/appliance-core-0.7.0.tgz#6033584ac357967dde6e52d1ae624c0645823fa7"
-  integrity sha512-NgHnKZmCIdRwdMjfJi320ityJ5TAYxG47+1VtlS2xpuMHZTo7yPvh76Eo+CW959j752ds+NViQgPwSWLqn+9hA==
-  dependencies:
-    "@tvkitchen/base-classes" "^2.0.0-alpha.1"
-    "@tvkitchen/base-constants" "^1.2.0"
-    "@tvkitchen/base-errors" "^1.0.1"
-    "@tvkitchen/base-interfaces" "4.0.0-alpha.4"
-    command-exists "^1.2.9"
-    mpegts-demuxer "0.1.0"
-
-"@tvkitchen/appliance-core@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@tvkitchen/appliance-core/-/appliance-core-0.8.0.tgz#0ee413adc5c0824c4bf545ae5f5f61e44b23888d"
-  integrity sha512-7wUs84J6zy8Ch5ojpa7KSWxMM5qgd7eEKMqGI4Q6QA9v0MQqULp6ogeWL+u6tnR5nNttCunIbWAsFEDozXGN4w==
-  dependencies:
-    "@tvkitchen/base-classes" "^2.0.0-alpha.1"
-    "@tvkitchen/base-constants" "^1.2.0"
-    "@tvkitchen/base-errors" "^1.0.1"
-    "@tvkitchen/base-interfaces" "4.0.0-alpha.4"
-    command-exists "^1.2.9"
-    mpegts-demuxer "0.1.0"
-
 "@tvkitchen/base-classes@2.0.0-alpha.1", "@tvkitchen/base-classes@^2.0.0-alpha.1":
   version "2.0.0-alpha.1"
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-classes/-/base-classes-2.0.0-alpha.1.tgz#a52e7d39ee814c1a9f9293e199f99a93adb4a0c8"
@@ -1068,13 +1044,6 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@tvkitchen/base-errors/-/base-errors-1.0.1.tgz#1117e17c8a0888989ad155d1318d03b6a6ab942f"
   integrity sha512-AHb+LYbughr1dggUFiAA7y079ZRrjgLiW2KOJgeHbQXSr1kcaxcAnISUV8e1EYuUODhmN1FD8ka9T0d9+RLzKQ==
-
-"@tvkitchen/base-interfaces@4.0.0-alpha.4":
-  version "4.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@tvkitchen/base-interfaces/-/base-interfaces-4.0.0-alpha.4.tgz#c0820e455c0965de4d49b0c582dddc7013a86b42"
-  integrity sha512-mX/YrsrT3a9HAKEjxuT4D/TRMtN/XuLZKKi9BypHUB9wNwynOg84HrECWaMrSsJGLGn1zUmJk6HtjM2a/CJK9g==
-  dependencies:
-    "@tvkitchen/base-errors" "^1.0.0"
 
 "@tvkitchen/base-interfaces@4.0.0-alpha.5":
   version "4.0.0-alpha.5"

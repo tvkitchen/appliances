@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `AbstractAppliance` now passes the instance's settings to the `getInputTypes` method when determining a payload's validity.  This allows appliances to define configurable input and output types.
 
+### Changed
+- Update `@tvkitchen/base-interfaces` to version `4.0.0-alpha.5`.
+
 ## [0.8.0] - 2020-07-02
 - The `AbstractVideoIngestionAppliance` is now renamed to `AbstractVideoReceiverAppliance`.
 

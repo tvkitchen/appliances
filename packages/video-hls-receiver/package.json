@@ -1,0 +1,38 @@
+{
+  "name": "@tvkitchen/appliance-video-hls-receiver",
+  "description": "Converts a HTTP Live Stream url into MPEG-TS Payloads.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tvkitchen/appliances.git",
+    "directory": "packages/video-hls-receiver"
+  },
+  "keywords": [
+    "mpeg",
+    "mpeg-ts",
+    "video",
+    "ingestion",
+    "processing",
+    "HLS",
+    "m3u8",
+    "YouTube",
+    "live",
+    "tv",
+    "transform",
+    "tvkitchen"
+  ],
+  "license": "LGPL-3.0",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "dependencies": {
+    "@tvkitchen/appliance-core": "0.8.0",
+    "hls-parser": "^0.10.4",
+    "node-fetch": "^2.6.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "nock": "^13.0.4"
+  }
+}

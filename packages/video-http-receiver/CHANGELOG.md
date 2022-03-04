@@ -1,4 +1,4 @@
-# Changelog for @tvkitchen/appliance-video-http-ingestion
+# Changelog for @tvkitchen/appliance-video-http-receiver
 
 All notable changes to this project will be documented in this file.
 

@@ -1716,6 +1716,11 @@ commander@^4.0.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
 
+commander@^6.1.0:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
+  integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -2597,6 +2602,11 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
+
+hls-parser@^0.10.4:
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/hls-parser/-/hls-parser-0.10.4.tgz#74d114ed9146bf868c83f873a2cf4f1ab7f075d0"
+  integrity sha512-YAQyeoaDg7G88Vl2Bc5+UP55ROz1nPPYwZ69vTqHx3p7+mKwh0gHYTEIVFB6MZL/npB4XeZ0h9GaH/olps0zeA==
 
 homedir-polyfill@^1.0.1:
   version "1.0.3"
@@ -3767,6 +3777,13 @@ node-releases@^1.1.71:
   version "1.1.72"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.72.tgz#14802ab6b1039a79a0c7d662b610a5bbd76eacbe"
   integrity sha512-LLUo+PpH3dU6XizX3iVoubUNheF/owjXCZZ5yACDxNnPtgFuludV1ZL3ayK1kVep42Rmm0+R9/Y60NQbZ2bifw==
+
+node-webvtt@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/node-webvtt/-/node-webvtt-1.9.3.tgz#756b144a4eb8f2f277510a5787cd8a21fc4d46b1"
+  integrity sha512-hdzBajT+LHoaXZB/wBgMP9RCyWLT/baTw/hWa+RjoKcilpJ4rtI+0sn5MfsLJ/rYcEj6gy7VFC6KOgMxrqUT2g==
+  dependencies:
+    commander "^6.1.0"
 
 normalize-package-data@^2.3.2, normalize-package-data@^2.5.0:
   version "2.5.0"

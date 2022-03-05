@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/tvkitchen/appliances.svg?branch=main)](https://travis-ci.com/tvkitchen/appliances)
+[![codecov](https://codecov.io/gh/tvkitchen/appliances/branch/main/graph/badge.svg?token=YSKZPCG0JY)](https://codecov.io/gh/tvkitchen/appliances)
 
 # TV Kitchen: Appliances
 
